@@ -23,7 +23,8 @@ CREATE TABLE user_board(
   r_id INT,
   PRIMARY KEY(u_id, b_id),
   FOREIGN KEY(u_id) REFERENCES USERS(u_id),
-  FOREIGN KEY(b_id) REFERENCES BOARD(b_id)
+  FOREIGN KEY(b_id) REFERENCES BOARD(b_id),
+  FOREIGN KEY(r_id) REFERENCES roles(r_id)
 );
 
 CREATE TABLE swim_lane_type(
