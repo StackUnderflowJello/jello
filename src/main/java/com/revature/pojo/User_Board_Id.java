@@ -1,6 +1,5 @@
 package com.revature.pojo;
 
- 
 import java.io.Serializable;
 
 import javax.persistence.Embeddable;

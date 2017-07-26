@@ -8,7 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
- 
+
 @Entity
 @Table(name="user_board")
 public class User_Board implements Serializable{

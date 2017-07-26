@@ -6,7 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
- 
+
 @Entity
 @Table(name="Swim_Lane_Type")
 public class Swim_Lane_Type implements Serializable{

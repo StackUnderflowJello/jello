@@ -15,7 +15,7 @@ public class Jello_Bite implements Serializable {
 	
 	/**
 	 * 
-	 */ 
+	 */
 	private static final long serialVersionUID = -5738362805815909696L;
 	@Id
 	@Column
