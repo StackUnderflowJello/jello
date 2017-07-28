@@ -100,6 +100,12 @@ public class UsersdaoImpl implements UsersDao{
 		session.delete(board);		
 	}
 
+	@Override
+	public Users serchUserByEmail(Users use) {
+		Session session = sessionFactory.getCurrentSession();
+		return (Users) session.get(Users.class, use.getU_email());
+	}
+
 
 
 

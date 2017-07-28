@@ -17,7 +17,7 @@ public interface UsersDao {
 	
 	//READ
 	public Users getUserByEmail(Users use);
-//	public Users serchUserByEmail(Users use);
+	public Users serchUserByEmail(Users use);
 	public Board getBoard(Board board);
 	
 	//UPDATE
