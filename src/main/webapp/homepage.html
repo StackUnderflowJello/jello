@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- CSS -->
+ <link rel="stylesheet" href="features/stand.css" />
+ <!-- Google Fonts -->
+ <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous" />
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<title>Homepage</title>
+</head>
+<body>
+<h1 id="brand">Jell-o</h1>
+<ul class="nav nav-pills">
+  <li role="presentation" class="active"><a id="standup">View Boards</a></li>
+  <li role="presentation"><a id="#">View Burn Down</a></li>
+  <li role="presentation"><a id="#">Add Members</a></li>
+  <li><form class="navbar-form navbar-right">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search Members">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form> 
+    </li>
+  <li role="presentation"><a id="#">Logout</a></li>
+</ul>
+<br>
+<div class="container-fluid">
+<div class="holder">
+      <!--<div id="box-one" class="draggable">  
+  <p> I am the first Box </p>
+</div>
+<div id="box-two" class="draggable">  
+    <p> I am the second Box </p>
+</div>
+<br> -->
+	<div class="row">
+      <div id="dropzone" class="dropzone col-md-4">My Blockers</div>
+      <div id="dropzone1" class="dropzone col-md-4">What I'm doing today</div>
+      <div id="dropzone2" class="dropzone col-md-4">What I did yesterday</div>
+    </div>
+    </div>
+    </div>
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.2.6/interact.min.js"></script>
+<script src="features/standup.js"></script>
+</body>
+</html>

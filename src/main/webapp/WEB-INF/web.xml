@@ -9,4 +9,24 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>NavbarServlet</display-name>
+    <servlet-name>NavbarServlet</servlet-name>
+    <servlet-class>com.revature.servlets.NavbarServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>NavbarServlet</servlet-name>
+    <url-pattern>/NavbarServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>StandupServlet</display-name>
+    <servlet-name>StandupServlet</servlet-name>
+    <servlet-class>com.revature.servlets.StandupServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>StandupServlet</servlet-name>
+    <url-pattern>/StandupServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

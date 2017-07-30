@@ -1,17 +1,58 @@
 @CHARSET "ISO-8859-1";
 /* Styles go here */
+
+body{
+	background-image: url('http://data.whicdn.com/images/39339494/original.jpg')
+}
+#brand{
+	font-family: 'Indie Flower', cursive;
+	text-align: center;
+	color: white;
+}
+
+
 .holder {
   width: 700px;
   height: 700px;
 }
-.dropzone {
-  background-color: #ccc;
+
+.dropzone{
+	margin-left: auto;
+    margin-right: auto;	
+    color: white;
+    text-align: center;
+    font-family: 'Indie Flower', cursive;
+    font-size: 20px;
+}
+
+#dropzone {
+  background-color: rgba(193, 66, 156, 0.77);
   padding: 10px;
   margin: 10px;
   width: 200px;
   height: 500px;
-   border: dashed 4px transparent;
-  float:left;
+  border: dashed 4px transparent;
+  float: right;
+}
+
+#dropzone1{
+	background-color: rgba(193, 66, 156, 0.77);
+  padding: 10px;
+  margin: 10px;
+  width: 200px;
+  height: 500px;
+  border: dashed 4px transparent;
+  float: right;
+}
+
+#dropzone2{
+	background-color: rgba(193, 66, 156, 0.77);
+  padding: 10px;
+  margin: 10px;
+  width: 200px;
+  height: 500px;
+  border: dashed 4px transparent;
+  float:right;
 }
 
 .draggable {
