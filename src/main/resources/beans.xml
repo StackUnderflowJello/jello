@@ -14,7 +14,7 @@
 <context:component-scan base-package="com.revature"></context:component-scan>
 
 
-
+<mvc:resources location="/resources/" mapping="/resources/**"></mvc:resources>
 
 
 <!-- Tell Spring we are using a transactionManager and to scan for the @s of it -
