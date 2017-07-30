@@ -14,14 +14,9 @@
 <context:component-scan base-package="com.revature"></context:component-scan>
 
 
-
-
-
 <!-- Tell Spring we are using a transactionManager and to scan for the @s of it -
 		@Transactional -->
 <tx:annotation-driven/>
-
-
 
 
 <!-- 1st supply you DataSource: basic JDBC information -->
@@ -35,11 +30,8 @@
 </bean>
 
 
-
 <!-- Now Give that DataSourceobject to the SessionFactory -->
 	<bean id="mySessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-
-
 
 
 
@@ -48,18 +40,14 @@
 
 
 
-
-
-
 <!-- Now supply the rest of the Hibernate properties -->
 	<property name="hibernateProperties">
-					<props>
-						<prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
-						<prop key="hibernate.show_sql">true</prop>
-						<prop key="hibernate.hbm2dll">update</prop>
-					</props>
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.hbm2dll">update</prop>
+			</props>
 	</property>
-
 
 
 <!-- scans for JPA -->
@@ -73,7 +61,9 @@
 	<property name="sessionFactory" ref="mySessionFactory"></property>
 </bean>
 
-
+<!-- This is allowing spring to figure out our object dependencies
+    		using the auto-wire attribute -->
+<!--  <bean class="com.revature.service.AppService" id="service" autowire="byName"></bean> --> 
 
 
 </beans>
