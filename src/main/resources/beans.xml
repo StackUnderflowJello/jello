@@ -16,11 +16,17 @@
 <context:component-scan base-package="com.revature"></context:component-scan>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 <!-- turn on aop -->
 <aop:aspectj-autoproxy/>
 
 =======
 >>>>>>> Adding updated POJO forget to put in constructors for two pojos
+=======
+<!-- turn on aop -->
+<aop:aspectj-autoproxy/>
+
+>>>>>>> adding aspect jello and updated pojos
 
 <!-- Tell Spring we are using a transactionManager and to scan for the @s of it -
 		@Transactional -->
