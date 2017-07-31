@@ -4,7 +4,10 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
  
 @Entity
@@ -18,6 +21,8 @@ public class Users implements Serializable{
 	
 	@Id
 	@Column
+	@SequenceGenerator(name="users_seq", sequenceName="users_seq")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="users_seq")//specifying that we are creating a sequence in a DB
 	private int u_id;
 	@Column
 	private String u_email;

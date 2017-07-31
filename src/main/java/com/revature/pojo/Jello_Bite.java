@@ -4,9 +4,12 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -19,11 +22,13 @@ public class Jello_Bite implements Serializable {
 	private static final long serialVersionUID = -5738362805815909696L;
 	@Id
 	@Column
+	@SequenceGenerator(name="jello_bite_seq", sequenceName="jello_bite_seq")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="jello_bite_seq")//specifying that we are creating a sequence in a DB
 	private int bite_id;
 	@Column
 	private String bite_name;
 	@ManyToOne
-	@JoinColumn(name="bite_id")
+	@JoinColumn(name="lane_id")
 	private Swim_Lane swim_lane;
 	@Column
 	private int jello_point;
