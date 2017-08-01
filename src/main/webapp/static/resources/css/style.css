@@ -1,0 +1,33 @@
+@CHARSET "ISO-8859-1";
+/* Styles go here */
+
+.container {
+   margin-top: 40px;
+   width: 90%;
+}
+        
+#chartContainer {
+   margin-top: 30px;
+   height: 500px; 
+   width: 100%;
+}
+
+.modal {
+    display: block;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 80%;
+    top: 15%;
+}
+
+/* Modal Body */
+.modal-body {padding: 2px 16px;}
+
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; /* 15% from the top and centered */
+    padding: 20px;
+    width: 70%; /* Could be more or less, depending on screen size */
+}
