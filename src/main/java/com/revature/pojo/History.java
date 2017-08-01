@@ -23,7 +23,6 @@ public class History implements Serializable{
 	
 	@Id
 	@Column
-	//removing sequence, going to make triggers in SQL
 	private int history_id;
 	@ManyToOne
 	@JoinColumn(name="bite_id")

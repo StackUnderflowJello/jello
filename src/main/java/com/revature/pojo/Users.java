@@ -21,7 +21,6 @@ public class Users implements Serializable{
 	
 	@Id
 	@Column
-	//removing sequence, going to make triggers in SQL
 	private int u_id;
 	@Column
 	private String u_email;

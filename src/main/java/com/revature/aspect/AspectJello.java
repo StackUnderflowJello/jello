@@ -1,5 +1,9 @@
 package com.revature.aspect;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 
 import org.apache.log4j.Logger;
 import org.aspectj.lang.JoinPoint;
@@ -136,7 +140,7 @@ public class AspectJello {
 		System.out.println("Logged from User_Board Dao Impl Method");
 		jp.getArgs();
 	}
-	
+
 
 	/**
 	 * logging the getUserbyEmail(),
@@ -174,27 +178,4 @@ public class AspectJello {
 		logger.info("User Deleted: " + use.getU_id() + " " + use.getU_email());
 	}
 	
-	public static void main(String[] args) {
-		 ApplicationContext ac = new ClassPathXmlApplicationContext("beans.xml");
-	        
-	        Board board = new Board();
-	        BoardDao boardDao = new BoardDaoImpl();
-	        
-	        Jello_Bite jello_bite = new Jello_Bite();
-	        Jello_BiteDao jello_biteDao = new Jello_BiteDaoImpl();
-	        Task task = new Task();
-	        TaskDao taskDao = new TaskDaoImpl();
-	        
-	        User_Board_Id user_board_id = new User_Board_Id();
-	        User_Board_IdDao ubiDao = new User_Board_IdDaoImpl();
-	        
-	        User_Board user_board = new User_Board();
-	        User_BoardDao ubDao = new User_BoardDaoImpl();
-	        
-	        Users usr = new Users();
-	        UsersDao uDao = new UsersDaoImpl();
-	        
-	        usr.setU_email("jonny@java.com");
-	        System.out.println(uDao.getUserByEmail(usr));
-	}
 	}

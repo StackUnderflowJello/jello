@@ -22,7 +22,6 @@ public class Jello_Bite implements Serializable {
 	private static final long serialVersionUID = -5738362805815909696L;
 	@Id
 	@Column
-	//removing sequence, going to make triggers in SQL
 	private int bite_id;
 	@Column
 	private String bite_name;

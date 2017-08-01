@@ -23,7 +23,6 @@ public class Swim_Lane implements Serializable {
 
 	@Id
 	@Column
-	//removing sequence, going to make triggers in SQL
 	private int lane_id;
 	
 	@JoinColumn(name="b_id")

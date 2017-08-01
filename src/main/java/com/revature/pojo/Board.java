@@ -20,7 +20,6 @@ public class Board implements Serializable {
 	private static final long serialVersionUID = -5949559657708067406L;
 	@Id
 	@Column
-	//removing sequence, going to make triggers in SQL
 	private int b_id;
 	@Column
 	private String b_name;
