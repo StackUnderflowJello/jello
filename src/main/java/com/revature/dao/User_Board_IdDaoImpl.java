@@ -15,4 +15,5 @@ public class User_Board_IdDaoImpl implements User_Board_IdDao {
 		session.save(userBoardId);
 	}
 
+	
 }
