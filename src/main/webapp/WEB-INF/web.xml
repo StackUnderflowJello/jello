@@ -10,20 +10,22 @@
             <param-value>/WEB_INF/beans.xml</param-value>
         </init-param>
     </servlet>
+    
     <servlet-mapping>
         <servlet-name>SpringServlet</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+    
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
+    
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>/WEB-INF/beans.xml</param-value>
     </context-param>
   
   
-  
-  
+ 
   
 </web-app>

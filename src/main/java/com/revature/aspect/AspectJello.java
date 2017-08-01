@@ -5,27 +5,14 @@ import org.apache.log4j.Logger;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
 
-import com.revature.dao.BoardDao;
-import com.revature.dao.BoardDaoImpl;
-import com.revature.dao.Jello_BiteDao;
-import com.revature.dao.Jello_BiteDaoImpl;
-import com.revature.dao.TaskDao;
-import com.revature.dao.TaskDaoImpl;
-import com.revature.dao.User_BoardDao;
-import com.revature.dao.User_BoardDaoImpl;
 import com.revature.dao.User_Board_IdDao;
-import com.revature.dao.User_Board_IdDaoImpl;
 import com.revature.dao.UsersDao;
 import com.revature.dao.UsersDaoImpl;
 import com.revature.pojo.Board;
 import com.revature.pojo.Jello_Bite;
 import com.revature.pojo.Task;
-import com.revature.pojo.User_Board;
-import com.revature.pojo.User_Board_Id;
 import com.revature.pojo.Users;
 
 @Aspect
@@ -158,6 +145,7 @@ public class AspectJello {
 		Users use = (Users) jp.getArgs()[0];
 		System.out.println("New User Added: " + use.getU_id() + " " + use.getU_email() + " " + use.getU_password());
 		logger.info("New User Added: " + use.getU_id() + " " + use.getU_email() + " " + use.getU_password());
+	
 	}
 	
 	@Before("execution(* com.revature.dao.UsersDaoImpl.updateUserRoles(..))")
@@ -165,15 +153,17 @@ public class AspectJello {
 		Users use = (Users) jp.getArgs()[0];
 		System.out.println("User role update: " + use.getU_id());
 		logger.info("User role update: " + use.getU_id());
+	
 	}
 	
 	@Before("execution(* com.revature.dao.UsersDaoImpl.deleteUser(..))")
 	public void hijackDeleteUser(JoinPoint jp){
+		
 		Users use = (Users) jp.getArgs()[0];
 		System.out.println("User Deleted: " + use.getU_id() + " " + use.getU_email());
 		logger.info("User Deleted: " + use.getU_id() + " " + use.getU_email());
+	
 	}
 	
-	//Going to Test Services class downs here
 	
 	}

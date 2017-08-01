@@ -1,6 +1,6 @@
 package com.revature.services;
-
 import java.util.List;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,11 +9,12 @@ import com.revature.dao.UsersDao;
 import com.revature.pojo.User_Board;
 import com.revature.pojo.Users;
 
-@Service("AppService")
+@Service(value="AppService")
 public class AppServices {
 	
 	@Autowired
 	private UsersDao usersDao;
+	
 	
 //	private void createBoardForUser(){
 //		Users user = (Users) session.getAttribute("user");
@@ -21,29 +22,27 @@ public class AppServices {
 //		
 //	}
 	
-	
-	
 	/*
 	 * =====================User Services =============================
 	 */
-	private List<User_Board> getAllBoardsByUser(Users use){
+	public List<User_Board> getAllBoardsByUser(Users use){
 		
 		return usersDao.getAllBoardsByUser(use);
 	}
 	
-	private void deleteUser(Users use){
+	public void deleteUser(Users use){
 		usersDao.deleteUser(use);
 	}
 	
-	private void updateUserRoles(Users use){
+	public void updateUserRoles(Users use){
 		usersDao.updateUserRoles(use);
 	}
 	
-	private void newUser(Users use){
+	public void newUser(Users use){
 		usersDao.newUser(use);
 	}
 	
-	private Users getUserByEmail(Users use){
+	public Users getUserByEmail(Users use){
 		return usersDao.getUserByEmail(use);
 	}
 	
