@@ -23,8 +23,7 @@ public class Swim_Lane implements Serializable {
 
 	@Id
 	@Column
-	@SequenceGenerator(name="lane_seq", sequenceName="lane_seq")
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="lane_seq")//specifying that we are creating a sequence in a DB
+	//removing sequence, going to make triggers in SQL
 	private int lane_id;
 	
 	@JoinColumn(name="b_id")

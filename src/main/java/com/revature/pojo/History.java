@@ -23,8 +23,7 @@ public class History implements Serializable{
 	
 	@Id
 	@Column
-	@SequenceGenerator(name="history_seq", sequenceName="history_seq")
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="history_seq")//specifying that we are creating a sequence in a DB
+	//removing sequence, going to make triggers in SQL
 	private int history_id;
 	@ManyToOne
 	@JoinColumn(name="bite_id")

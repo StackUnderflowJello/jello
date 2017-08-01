@@ -20,8 +20,7 @@ public class Board implements Serializable {
 	private static final long serialVersionUID = -5949559657708067406L;
 	@Id
 	@Column
-	@SequenceGenerator(name="board_seq", sequenceName="board_seq")
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="board_seq")//specifying that we are creating a sequence in a DB
+	//removing sequence, going to make triggers in SQL
 	private int b_id;
 	@Column
 	private String b_name;

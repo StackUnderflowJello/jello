@@ -22,8 +22,8 @@ public class Task  implements Serializable{
 	private static final long serialVersionUID = -6388441533051245050L;
 	@Id
 	@Column
-	@SequenceGenerator(name="task_seq", sequenceName="task_seq")
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="task_seq")//specifying that we are creating a sequence in a DB
+	@SequenceGenerator(name = "task_seq", sequenceName = "task_seq")
+	@GeneratedValue(strategy = GenerationType.AUTO, generator="task_seq")  
 	private int t_id;
 	@ManyToOne
 	@JoinColumn(name="bite_id")

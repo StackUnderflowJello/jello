@@ -21,8 +21,7 @@ public class Users implements Serializable{
 	
 	@Id
 	@Column
-	@SequenceGenerator(name="users_seq", sequenceName="users_seq")
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="users_seq")//specifying that we are creating a sequence in a DB
+	//removing sequence, going to make triggers in SQL
 	private int u_id;
 	@Column
 	private String u_email;
