@@ -20,7 +20,7 @@ import com.revature.dto.JelloDTO;
 public class AddStoryCtrl {
 
 	
-	@RequestMapping(value = "/add", method = RequestMethod.POST)
+	@RequestMapping(value = "/addStory", method = RequestMethod.POST)
 	public void addPOST(HttpServletRequest req, @RequestBody String json) throws JsonParseException, JsonMappingException, IOException{
 		System.out.println("Add - POST");
 		System.out.println(json);

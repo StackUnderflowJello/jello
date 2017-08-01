@@ -2,7 +2,8 @@
 <html ng-app="myApp">
 <head>
 <!-- CSS -->
- <link rel="stylesheet" href="features/stand.css" />
+ <link rel="stylesheet" href="features/css/navbar.css" />
+  <link rel="stylesheet" href="features/css/app.css" />
  <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
  <!-- Google Fonts -->
  <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
@@ -14,7 +15,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <title>Homepage</title>
 </head>
-<body ng-controller="myCtrl">
+<body>
 <h1 id="brand">Jell-o</h1>
 <ul class="nav nav-pills">
   <li role="presentation" class="active"><a id="standup">View Boards</a></li>
@@ -43,11 +44,11 @@
 		<div id="box-two" class="draggable">  
 		    <p> I am the second Box </p>
 		</div> <br> -->
-		
-		 <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add Story</button>
 
+<!-- AddStory Feature -->
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add Story</button>
 <!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
+<div id="myModal" class="modal fade" role="dialog" ng-controller="addStoryCtrl">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -83,12 +84,37 @@
   </div>
 </div>
     </div>
+    
+    <!-- AddBoard Feature -->
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal1" style="text-align: center;">Add Board</button>
+
+<!-- Modal -->
+<div id="myModal1" class="modal fade" role="dialog" ng-controller="addBoardCtrl">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Add Board</h4>
+      </div>
+      <div class="modal-body">
+        <form ng-submit="submit()" method="POST">
+            <div class="form-group">
+              <label for="usr">Board Name:</label>
+              <input type="text" class="form-control" required ng-model="board_name">
+            </div>
+              <input type="submit" id="submit" class="btn btn-primary btn-block" value="Submit"  />
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
     </div>
     </div>
-    <!-- JQuery -->
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-	<script src="static/board.js"></script>
-	<!-- <script src="features/standup.js"></script>  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script src="features/js/addStory.js"></script>
+	<script src="features/js/dragAndDrop.js"></script>
 </body>
 </html>
