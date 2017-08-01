@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="myApp">
 <head>
 <!-- CSS -->
  <link rel="stylesheet" href="features/stand.css" />
+ <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
  <!-- Google Fonts -->
  <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
     <!-- Latest compiled and minified CSS -->
@@ -13,7 +14,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <title>Homepage</title>
 </head>
-<body>
+<body ng-controller="myCtrl">
 <h1 id="brand">Jell-o</h1>
 <ul class="nav nav-pills">
   <li role="presentation" class="active"><a id="standup">View Boards</a></li>
@@ -29,24 +30,65 @@
   <li role="presentation"><a id="#">Logout</a></li>
 </ul>
 <br>
-<div class="container-fluid">
 <div class="holder">
+	<div class="container-fluid">
 	<div class="row">
       <div id="dropzone" class="dropzone col-md-4">My Blockers</div>
       <div id="dropzone1" class="dropzone col-md-4">What I'm doing today</div>
       <div id="dropzone2" class="dropzone col-md-4">What I did yesterday</div>
-      <div id="box-one" class="draggable">  
+      
+      <!--<div id="box-one" class="draggable">  
 		  <p> I am the first Box </p>
 		</div>
 		<div id="box-two" class="draggable">  
 		    <p> I am the second Box </p>
-		</div> <br>
+		</div> <br> -->
+		
+		 <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add Story</button>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Add Story</h4>
+      </div>
+      <div class="modal-body">
+        <form ng-submit="submit()" method="POST">
+            <div class="form-group">
+              <label for="usr">Story Name:</label>
+              <input type="text" class="form-control" required ng-model="story_name">
+            </div>
+            <div class="form-group">
+              <label for="usr">Points:</label>
+              <input type="number" class="form-control" min="0" max="10" ng-model="points">
+            </div>
+            </br>
+               <div ng-repeat="element in elements">
+               <label>Task:</label>
+                <input type="text" class="form-control col-xs-2" ng-model="element.value"/>
+                   </br> </br> </br>
+                </div>
+            </br>
+           <input type="button" class="btn btn-primary" value="Add Task" ng-click="addTask()" />
+            </br> </br>
+              <input type="submit" id="submit" class="btn btn-primary btn-block" value="Submit"  />
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
     </div>
     </div>
     </div>
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.2.6/interact.min.js"></script>
-<script src="features/standup.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script src="static/board.js"></script>
+	<!-- <script src="features/standup.js"></script>  -->
 </body>
 </html>

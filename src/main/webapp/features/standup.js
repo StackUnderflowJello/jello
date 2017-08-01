@@ -19,6 +19,7 @@ function loadNavbar(){
 	xhr.send();
 } */
 
+
 interact('.draggable')  
   .draggable({
     // enable inertial throwing
