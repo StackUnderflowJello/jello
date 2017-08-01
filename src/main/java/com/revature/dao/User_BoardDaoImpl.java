@@ -11,4 +11,5 @@ public class User_BoardDaoImpl implements User_BoardDao{
 	@Autowired
 	private SessionFactory sessionFactory;
 
+	
 }

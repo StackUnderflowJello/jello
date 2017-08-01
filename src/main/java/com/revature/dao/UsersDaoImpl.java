@@ -27,7 +27,10 @@ public class UsersDaoImpl implements UsersDao{
 	@Override
 	public Users getUserByEmail(Users use) {
 		System.out.println("Getting user my email");
+		
 		Session session = sessionFactory.getCurrentSession();
+		
+		
 		Criteria crit = session.createCriteria(Users.class);
 		crit.add(ilike("U_EMAIL", use.getU_email()));
 		
