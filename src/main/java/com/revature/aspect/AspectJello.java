@@ -164,6 +164,6 @@ public class AspectJello {
 		logger.info("User Deleted: " + use.getU_id() + " " + use.getU_email());
 	
 	}
-	
+		
 	
 	}
