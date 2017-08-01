@@ -1,12 +1,5 @@
 package com.revature.aspect;
 
-<<<<<<< HEAD
-=======
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
->>>>>>> 003bcd1c5971ea0d0cf455a4f2bfb24ac6ac14dd
 
 import org.apache.log4j.Logger;
 import org.aspectj.lang.JoinPoint;
@@ -181,9 +174,6 @@ public class AspectJello {
 		logger.info("User Deleted: " + use.getU_id() + " " + use.getU_email());
 	}
 	
-<<<<<<< HEAD
 	//Going to Test Services class downs here
 	
-=======
->>>>>>> 003bcd1c5971ea0d0cf455a4f2bfb24ac6ac14dd
 	}
