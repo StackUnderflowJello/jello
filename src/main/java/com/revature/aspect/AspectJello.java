@@ -1,9 +1,5 @@
 package com.revature.aspect;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
 
 import org.apache.log4j.Logger;
 import org.aspectj.lang.JoinPoint;
@@ -177,5 +173,7 @@ public class AspectJello {
 		System.out.println("User Deleted: " + use.getU_id() + " " + use.getU_email());
 		logger.info("User Deleted: " + use.getU_id() + " " + use.getU_email());
 	}
+	
+	//Going to Test Services class downs here
 	
 	}
