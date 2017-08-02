@@ -8,10 +8,12 @@ public interface TaskDao {
 	public void createBiteTask(Task task);
 	
 	//READ
+	public void getBiteTask(Task task);
 	
 	
 	//UPDATE
 	public void updateBiteTask(Task task);
 	
 	//DELETE
+	public void deleteBiteTask(Task task);
 }
