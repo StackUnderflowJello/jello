@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-ng-app="myApp">
+<html>
 <head>
 <!-- CSS -->
  <link rel="stylesheet" href="css/navbar.css" />
@@ -16,7 +16,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <title>Homepage</title>
 </head>
-<body>
+<body data-ng-app="myApp">
 <h1 id="brand">Jell-o</h1>
 <ul class="nav nav-pills">
   <li role="presentation" class="active"><a href="#/!">View Board</a></li>
@@ -30,7 +30,7 @@
       <button type="submit" class="btn btn-primary">Submit</button>
     </form> 
     </li>
-  <li role="presentation"><a href="#!logout">Logout</a></li>
+  <li role="presentation"><a href="#!login">Logout</a></li>
 </ul>
 <br>
 
@@ -38,10 +38,10 @@
 	<!-- Angular View: this is called Routing -->
 		<div ng-view></div>
 
-  <section ng-app="myApp" ng-controller="cardCtrl">
+ <!--  <section ng-app="myApp" ng-controller="cardCtrl">
     <addbuttonsbutton></addbuttonsbutton>
     <div id="space-for-buttons"></div>
-</section>     
+</section>   -->   
      
 <!-- AddStory Feature -->
 <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add Story</button>
@@ -109,7 +109,7 @@
   </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-	<!--  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script> -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
 	<script src="js/angular-route.min.js" type="text/javascript"></script>
     <script src="app.js"></script>
 	<script src="js/addStory.js"></script>
