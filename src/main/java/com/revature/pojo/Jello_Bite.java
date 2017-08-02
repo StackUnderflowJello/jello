@@ -23,7 +23,7 @@ public class Jello_Bite implements Serializable {
 	@Column
 	private String bite_name;
 	@ManyToOne
-	@JoinColumn(name="bite_id")
+	@JoinColumn(name="lane_id")
 	private Swim_Lane swim_lane;
 	@Column
 	private int jello_point;
