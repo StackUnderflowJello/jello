@@ -12,10 +12,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
+
 @Entity
 @Table(name="Jello_Bite")
 public class Jello_Bite implements Serializable {
-	
+	@Cascade(CascadeType.DELETE)
 	/**
 	 * 
 	 */ 

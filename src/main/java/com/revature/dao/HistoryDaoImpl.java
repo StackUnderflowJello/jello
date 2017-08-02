@@ -1,43 +1,45 @@
 package com.revature.dao;
 
+import javax.transaction.Transactional;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
-import com.revature.pojo.Task;
+import com.revature.pojo.History;
 
 @Repository
 @Component
-public class TaskDaoImpl implements TaskDao{
+public class HistoryDaoImpl implements HistoryDao {
 
     @Autowired
     private SessionFactory sessionFactory;
     
-    
     @Override
-    public void createBiteTask(Task task) {
+    public void saveHistory(History history) {
         Session session = sessionFactory.getCurrentSession();
-        session.save(task);
-    }
-    
-    @Override
-    public void updateBiteTask(Task task) {
-        Session session = sessionFactory.getCurrentSession();
-        session.update(task);
+        session.save(history);
     }
 
     @Override
-    public void getBiteTask(Task task) {
+    public History getHistory(History history) {
         Session session = sessionFactory.getCurrentSession();
-        session.get(Task.class, task.getT_id());
+        return (History) session.get(History.class, history.getHistory_id());
     }
 
     @Override
-    public void deleteBiteTask(Task task) {
+    public void updateHistory(History history) {
+
         Session session = sessionFactory.getCurrentSession();
-        session.delete(task);
+        session.update(history);
+    }
+
+    @Override
+    public void removeHistory(History history) {
+        Session session = sessionFactory.getCurrentSession();
+        session.delete(history);
     }
 
 }
