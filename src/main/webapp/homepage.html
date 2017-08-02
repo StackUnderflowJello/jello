@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html ng-app="myApp">
+<html data-ng-app="myApp">
 <head>
 <!-- CSS -->
- <link rel="stylesheet" href="features/css/navbar.css" />
-  <link rel="stylesheet" href="features/css/app.css" />
- <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
- <!-- Google Fonts -->
- <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+ <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/app.css" />
+	<!-- JQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
     <!-- Optional theme -->
@@ -18,9 +19,10 @@
 <body>
 <h1 id="brand">Jell-o</h1>
 <ul class="nav nav-pills">
-  <li role="presentation" class="active"><a id="standup">View Boards</a></li>
-  <li role="presentation"><a id="#">View Burn Down</a></li>
-  <li role="presentation"><a id="#">Add Members</a></li>
+  <li role="presentation" class="active"><a href="#/!">View Board</a></li>
+  <li role="presentation"><a href="#!standup">View Stand Up Board</a></li>
+  <li role="presentation"><a href="#!burndown">View Burn Down</a></li>
+  <li role="presentation"><a href="#!members">Add Members</a></li>
   <li><form class="navbar-form navbar-right">
       <div class="form-group">
         <input type="text" class="form-control" placeholder="Search Members">
@@ -28,23 +30,19 @@
       <button type="submit" class="btn btn-primary">Submit</button>
     </form> 
     </li>
-  <li role="presentation"><a id="#">Logout</a></li>
+  <li role="presentation"><a href="#!logout">Logout</a></li>
 </ul>
 <br>
-<div class="holder">
-	<div class="container-fluid">
-	<div class="row">
-      <div id="dropzone" class="dropzone col-md-4">My Blockers</div>
-      <div id="dropzone1" class="dropzone col-md-4">What I'm doing today</div>
-      <div id="dropzone2" class="dropzone col-md-4">What I did yesterday</div>
-      
-      <!--<div id="box-one" class="draggable">  
-		  <p> I am the first Box </p>
-		</div>
-		<div id="box-two" class="draggable">  
-		    <p> I am the second Box </p>
-		</div> <br> -->
 
+
+	<!-- Angular View: this is called Routing -->
+		<div ng-view></div>
+
+  <section ng-app="myApp" ng-controller="cardCtrl">
+    <addbuttonsbutton></addbuttonsbutton>
+    <div id="space-for-buttons"></div>
+</section>     
+     
 <!-- AddStory Feature -->
 <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add Story</button>
 <!-- Modal -->
@@ -76,14 +74,13 @@
             </br>
            <input type="button" class="btn btn-primary" value="Add Task" ng-click="addTask()" />
             </br> </br>
-              <input type="submit" id="submit" class="btn btn-primary btn-block" value="Submit"  />
+              <input type="submit" id="submit" class="btn btn-primary btn-block" value="Submit" />
         </form>
       </div>
     </div>
 
   </div>
 </div>
-    </div>
     
     <!-- AddBoard Feature -->
     <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal1" style="text-align: center;">Add Board</button>
@@ -108,13 +105,14 @@
         </form>
       </div>
     </div>
-
+	</div>
   </div>
-</div>
-    </div>
-    </div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-	<script src="features/js/addStory.js"></script>
-	<script src="features/js/dragAndDrop.js"></script>
+	<!--  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script> -->
+	<script src="js/angular-route.min.js" type="text/javascript"></script>
+    <script src="app.js"></script>
+	<script src="js/addStory.js"></script>
+	<!-- <script src="js/dragAndDrop.js"></script>-->
 </body>
 </html>
