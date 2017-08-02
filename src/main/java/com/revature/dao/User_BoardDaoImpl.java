@@ -5,7 +5,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.revature.pojo.Board;
-import com.revature.pojo.User_Board;
+
 
 public class User_BoardDaoImpl implements User_BoardDao{
 
