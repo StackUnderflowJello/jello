@@ -47,7 +47,7 @@ public class Jello_BiteDaoImpl implements Jello_BiteDao{
 	public List<Task> getTasksByJelloBiteId(Jello_Bite jello_bite) {
 		Session session = sessionFactory.getCurrentSession();
 		
-		Criteria crit = session.createCriteria(Jello_Bite.class);
+		Criteria crit = session.createCriteria(Task.class);
 		crit.add(ilike("BITE_ID", jello_bite.getBite_id()));
 		
 		return (List<Task>) crit.list();
