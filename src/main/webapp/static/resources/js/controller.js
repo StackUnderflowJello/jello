@@ -1,17 +1,19 @@
 
-app.controller('ChartController', function($scope){
+app.controller('ChartController', function($scope, chartService){
    
+   $scope.getChart = chartService.getChart(function(response){$scope.chartItems = response.data})
+   var chart = json.parse(getChart);
    var currPoints = [];
    var futurePoints = [];
-   var firstDate = new Date(2017, 06, 24);
+   var firstDate = new Date(chart[0].date);
    var currDate = new Date();
-   var maxPoints = 100;
-   var endPoints = 80;
+   var maxPoints = chart[0].points;
+   var endPoints = chart[chart.length - 1].points;
    
    var numDaysWorked = Math.floor((currDate.getTime()-firstDate.getTime())/(1000*60*60*24));
    var avgPoints = ((maxPoints-endPoints)/numDaysWorked);
-   for(var tempDate1 = new Date(firstDate), tempPoints1 = maxPoints; tempDate1 <= currDate; tempDate1.setDate(tempDate1.getDate()+1), tempPoints1-=avgPoints){
-      currPoints.push({x: new Date(tempDate1.getFullYear(), tempDate1.getMonth(), tempDate1.getDate()), y:tempPoints1});
+   for(i in chart ){
+      currPoints.push({x: new Date(chart[i].date), y:chart[i].points});
    }
    var finalDate = new Date();
    finalDate.setDate(firstDate.getDate()+14);

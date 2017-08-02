@@ -11,7 +11,7 @@
 
 
 <!-- Tell spring to search for @s like @autowired ...among other things-->
-<context:component-scan base-package="com.revature"></context:component-scan>
+<context:component-scan base-package="com.revature.*"></context:component-scan>
 
 
 
