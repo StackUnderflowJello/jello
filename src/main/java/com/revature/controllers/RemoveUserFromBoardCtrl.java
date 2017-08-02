@@ -16,6 +16,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.dto.UserDTO;
 import com.revature.pojo.Board;
 import com.revature.pojo.Users;
+import com.revature.services.AppServices;
 
 @RestController
 public class RemoveUserFromBoardCtrl {
@@ -35,11 +36,11 @@ public class RemoveUserFromBoardCtrl {
 		user.setU_email(user_dto.getEmail());
 		
 		//get userByEmail from service to get the id
-		user = new Service().getUserByEmail(user);
+		user = new AppServices().getUserByEmail(user);
 		
 		//delete user from user_board table by id
 		//need to do a criteria here
-		new Service().deleteUserFromBoardById(user);
+		new AppServices().deleteUser(user);
 	}
 	
 }

@@ -1,5 +1,7 @@
 package com.revature.controllers;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -8,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.dto.UserDTO;
 import com.revature.pojo.Board;
@@ -15,6 +19,7 @@ import com.revature.pojo.Roles;
 import com.revature.pojo.User_Board;
 import com.revature.pojo.User_Board_Id;
 import com.revature.pojo.Users;
+import com.revature.services.AppServices;
 
 @RestController
 public class AddUserToBoardCtrl {
@@ -28,11 +33,24 @@ public class AddUserToBoardCtrl {
 		//json is the user to be added
 		//get the userDTO [just their email]
 		ObjectMapper mapper = new ObjectMapper();
-		UserDTO user_dto = mapper.readValue(json, UserDTO.class);
+		UserDTO user_dto;
+		try {
+			user_dto = mapper.readValue(json, UserDTO.class);
+		} catch (JsonParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		//convert userDTO to user
 		Users user = new Users();
-		user.setU_email(user_dto.getEmail());
+		UserDTO dto = new UserDTO();
+		user.setU_email(dto.getEmail());
 		
 		//need to creates roles, user_board_id object, then combine to get user_board
 		Roles role = new Roles(1, "User");
@@ -40,7 +58,7 @@ public class AddUserToBoardCtrl {
 		User_Board ub = new User_Board(ub_id, role);
 		
 		//add record to user_board table
-		new Service().addUserToBoard(ub);
+		//new AppServices().addUserToBoard(ub);
 	}
 	
 }
