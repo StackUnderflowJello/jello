@@ -63,7 +63,11 @@
         </dependency>
        <dependency>
             <groupId>javax.servlet</groupId>
+<<<<<<< HEAD
             <artifactId>javax.servlet-api</artifactId>
+=======
+            <artifactId>jstl</artifactId>
+>>>>>>> b50fe7578f3bb91ac8e0f33c04fca2c3a186ac8f
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
