@@ -13,7 +13,6 @@ public interface User_BoardDao {
 	//UPDATE
 	public void changeBoardName(Board board);
 	
-	
 	//DELETE
 	public void deleteBoard(Board board);
 }

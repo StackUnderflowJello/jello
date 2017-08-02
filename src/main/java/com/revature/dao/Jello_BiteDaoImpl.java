@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 
 import com.revature.pojo.Jello_Bite;
 import com.revature.pojo.Task;
+import com.revature.pojo.User_Board;
 
 @Repository
 @Component

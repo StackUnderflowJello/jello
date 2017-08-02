@@ -41,5 +41,4 @@ public class User_BoardDaoImpl implements User_BoardDao{
 		session.delete(board);		
 	}
 
-	
 }
