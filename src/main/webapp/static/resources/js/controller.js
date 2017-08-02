@@ -2,7 +2,7 @@
 app.controller('ChartController', function($scope, chartService){
 
    $scope.getChart = chartService.getChart(function(response){var chart = response.data;
-   var chart = angular.fromJson(chart);
+   chart = angular.fromJson(chart);
    var currPoints = [];
    var futurePoints = [];
    var firstDate = new Date(chart[0].date);
