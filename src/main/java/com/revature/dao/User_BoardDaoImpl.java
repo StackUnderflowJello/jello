@@ -1,12 +1,17 @@
 package com.revature.dao;
 
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import com.revature.pojo.Board;
-import com.revature.pojo.User_Board;
 
+
+@Repository
+@Component
 public class User_BoardDaoImpl implements User_BoardDao{
 
 	@Autowired
@@ -40,5 +45,4 @@ public class User_BoardDaoImpl implements User_BoardDao{
 		Session session = sessionFactory.getCurrentSession();
 		session.delete(board);		
 	}
-
 }

@@ -11,7 +11,6 @@ import javax.persistence.Table;
 @Table(name="Swim_Lane_Type")
 public class Swim_Lane_Type implements Serializable{
 
-	
 	/**
 	 * 
 	 */
