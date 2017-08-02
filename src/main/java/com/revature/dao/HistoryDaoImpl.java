@@ -1,6 +1,5 @@
 package com.revature.dao;
 
-import javax.transaction.Transactional;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

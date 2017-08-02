@@ -17,3 +17,4 @@ public interface User_BoardDao {
     //DELETE
     public void deleteBoard(Board board);
 }
+

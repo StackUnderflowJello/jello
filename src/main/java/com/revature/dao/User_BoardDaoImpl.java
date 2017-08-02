@@ -45,6 +45,4 @@ public class User_BoardDaoImpl implements User_BoardDao{
 		Session session = sessionFactory.getCurrentSession();
 		session.delete(board);		
 	}
-
-	
 }

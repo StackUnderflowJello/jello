@@ -18,10 +18,14 @@
 <aop:aspectj-autoproxy/>
 
 
-<!-- Tell Spring we are using a transactionManager and to scan for the @s of it -
+<!-- Tell Spring we are using a transactionManager and to scan for the @s of it - 
 		@Transactional -->
 <tx:annotation-driven/>
 <mvc:annotation-driven />
+
+
+<mvc:resources location="/static/" mapping="/static/**"></mvc:resources>
+
 
 
 <!-- 1st supply you DataSource: basic JDBC information -->
