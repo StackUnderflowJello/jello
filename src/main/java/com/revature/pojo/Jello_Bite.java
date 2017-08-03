@@ -9,10 +9,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
+
 @Entity
 @Table(name="Jello_Bite")
 public class Jello_Bite implements Serializable {
-	
+	@Cascade(CascadeType.DELETE)
 	/**
 	 * 
 	 */ 
@@ -23,7 +27,7 @@ public class Jello_Bite implements Serializable {
 	@Column
 	private String bite_name;
 	@ManyToOne
-	@JoinColumn(name="bite_id")
+	@JoinColumn(name="lane_id")
 	private Swim_Lane swim_lane;
 	@Column
 	private int jello_point;

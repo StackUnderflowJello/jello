@@ -33,7 +33,6 @@ public class UsersDaoImpl implements UsersDao{
 		
 		Criteria crit = session.createCriteria(Users.class);
 		crit.add(ilike("U_EMAIL", use.getU_email()));
-		
 		// Should be unique, so just return the first item in the list and cast it.
 		return (Users) crit.list().get(0);
 	}
@@ -45,7 +44,7 @@ public class UsersDaoImpl implements UsersDao{
 	}
 
 	@Override
-	public void updateUserRoles(Users use) {
+	public void updateUser(Users use) {
 		Session session = sessionFactory.getCurrentSession();
 		session.update(use);
 	}

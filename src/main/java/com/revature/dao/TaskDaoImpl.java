@@ -12,32 +12,32 @@ import com.revature.pojo.Task;
 @Component
 public class TaskDaoImpl implements TaskDao{
 
-	@Autowired
-	private SessionFactory sessionFactory;
-	
-	
-	@Override
-	public void createBiteTask(Task task) {
-		Session session = sessionFactory.getCurrentSession();
-		session.save(task);
-	}
-	
-	@Override
-	public void updateBiteTask(Task task) {
-		Session session = sessionFactory.getCurrentSession();
-		session.update(task);
-	}
+    @Autowired
+    private SessionFactory sessionFactory;
+    
+    
+    @Override
+    public void createBiteTask(Task task) {
+        Session session = sessionFactory.getCurrentSession();
+        session.save(task);
+    }
+    
+    @Override
+    public void updateBiteTask(Task task) {
+        Session session = sessionFactory.getCurrentSession();
+        session.update(task);
+    }
 
-	@Override
-	public void getBiteTask(Task task) {
-		Session session = sessionFactory.getCurrentSession();
-		session.get(Task.class, task.getT_id());
-	}
+    @Override
+    public void getBiteTask(Task task) {
+        Session session = sessionFactory.getCurrentSession();
+        session.get(Task.class, task.getT_id());
+    }
 
-	@Override
-	public void deleteBiteTask(Task task) {
-		Session session = sessionFactory.getCurrentSession();
-		session.delete(task);
-	}
+    @Override
+    public void deleteBiteTask(Task task) {
+        Session session = sessionFactory.getCurrentSession();
+        session.delete(task);
+    }
 
 }

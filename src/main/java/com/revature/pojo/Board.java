@@ -7,10 +7,14 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 @Entity
 @Table(name="board")
 public class Board implements Serializable {
-
+	@Cascade(CascadeType.DELETE)
+	
 	/**
 	 * 
 	 */
