@@ -1,18 +1,28 @@
 package com.revature.aspect;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
 
 import com.revature.pojo.Board;
+import com.revature.pojo.History;
 import com.revature.pojo.Jello_Bite;
+import com.revature.pojo.Roles;
+import com.revature.pojo.Swim_Lane;
 import com.revature.pojo.Task;
 import com.revature.pojo.User_Board;
 import com.revature.pojo.User_Board_Id;
 import com.revature.pojo.Users;
+import com.revature.services.AppServices;
 
 @Aspect
 @Component
@@ -53,6 +63,35 @@ public class AspectJello {
 	}
 	
 	/**
+	 * logging method saveHistory(),
+	 * updateHistory(),
+	 * removeHistory(),
+	 * 
+	 * @param jp
+	 */
+	@Before("execution(* com.revature.dao.HistoryDaoImpl.saveHistory(..))")
+	public void hijackSaveHistory(JoinPoint jp){
+		History hist = (History) jp.getArgs()[0];
+		System.out.println("History saved: " + hist.getHistory_id());
+		logger.info("History saved: " + hist.getHistory_id());
+	}
+	
+	@Before("execution(* com.revature.dao.HistoryDaoImpl.updateHistory(..))")
+	public void hijackUpdateHistory(JoinPoint jp){
+		History hist = (History) jp.getArgs()[0];
+		System.out.println("History Updated: " + hist.getHistory_id());
+		logger.info("History Upadated: " + hist.getHistory_id());
+	}
+	
+	@Before("execution(* com.revature.dao.HistoryDaoImpl.removeHistory(..))")
+	public void hijackRemoveHistory(JoinPoint jp){
+		History hist = (History) jp.getArgs()[0];
+		System.out.println("History Removed: " + hist.getHistory_id());
+		logger.info("History Removed: " + hist.getHistory_id());
+	}
+	
+	
+	/**
 	 * logging the createBite(),
 	 * removeBite(),
 	 * moveBite(),
@@ -79,7 +118,37 @@ public class AspectJello {
 		System.out.println("Jello Bite moved:" + jello_bite.getBite_name());
 		logger.info("Jello Bite moved:" + jello_bite.getBite_name());
 	}
+	
 
+	/**
+	 * logging the createSwimLane(),
+	 * updateSwimLane(),
+	 * deleteSwimLane(),
+	 * @param jp
+	 */
+
+	@Before("execution(* com.revature.dao.Swim_Lane_DaoImpl.createSwimLane(..))")
+	public void hijackCreateSwimLane(JoinPoint jp){
+		Swim_Lane swimLane = (Swim_Lane) jp.getArgs()[0];
+		System.out.println("Swim Lane Created : " + swimLane.getLane_id() );
+		logger.info("Swim Lane Created: " + swimLane.getLane_id());
+	}
+	
+	@Before("execution(* com.revature.dao.Swim_Lane_DaoImpl.updateSwimLane(..))")
+	public void hijackUpdateSwimLane(JoinPoint jp){
+		Swim_Lane swimLane = (Swim_Lane) jp.getArgs()[0];
+		System.out.println("Swim Lane Updated: " + swimLane.getLane_id() );
+		logger.info("Swim Lane Updated: " + swimLane.getLane_id());
+	}
+	
+	@Before("execution(* com.revature.dao.Swim_Lane_DaoImpl.deleteSwimLane(..))")
+	public void hijackDeleteSwimLane(JoinPoint jp){
+		Swim_Lane swimLane = (Swim_Lane) jp.getArgs()[0];
+		System.out.println("Swim Lane deleted: " + swimLane.getLane_id() );
+		logger.info("Swim Lane deleted: " + swimLane.getLane_id());
+	}
+	
+	
 	/**
 	 * logging the createBiteTask(),
 	 * updateBiteTask(),
@@ -107,37 +176,7 @@ public class AspectJello {
 		System.out.println("Tasked Deleted: " + task.getT_id() + " " + task.getT_content());
 		logger.info("Tasked Deleted: " + task.getT_id() + " " + task.getT_content());
 	}
-	
-	/**
-	 * logging the addUserToBoard()
-	 * updateUser_Board_Id()
-	 * removeUser_Board_Id()
-	 * @param jp
-	 */
-	@Before("execution(* com.revature.dao.User_Board_IdDaoImpl.addUserToBoard(..))")
-	public void hijackAddUserToBoard(JoinPoint jp){
-		User_Board_Id userBoardId = (User_Board_Id) jp.getArgs()[0];
-		System.out.println("User added to board: " + userBoardId);
-		logger.info("User added to board: " + userBoardId);
-	
-	}
-	
-	@Before("execution(* com.revature.dao.User_Board_IdDaoImpl.updateUser_Board_Id(..))")
-	public void hijackUpdateUser_Board_Id(JoinPoint jp){
-		User_Board_Id userBoardId = (User_Board_Id) jp.getArgs()[0];
-		System.out.println("User Board ID updated: " + userBoardId);
-		logger.info("User Board ID updated: " + userBoardId);
-	
-	}
-	
-	@Before("execution(* com.revature.dao.User_Board_IdDaoImpl.removeUser_Board_Id(..))")
-	public void hijackRemoveUser_Board_Id(JoinPoint jp){
-		User_Board_Id userBoardId = (User_Board_Id) jp.getArgs()[0];
-		System.out.println("User Board Id removed: " + userBoardId);
-		logger.info("User Board Id removed: " + userBoardId);
-	
-	}
-		
+			
 	/**
 	 * logging the createBoard(),
 	 * changeBoardName(),
@@ -145,22 +184,22 @@ public class AspectJello {
 	 * @param jp
 	 */
 	
-	@Before("execution(* com.revature.dao.User_BoardDaoImpl.createBoard(..))")
-	public void hijackCreateUser_Board(JoinPoint jp){
+	@Before("execution(* com.revature.dao.User_BoardDaoImpl.addUserToBoard(..))")
+	public void hijackAddUserToBoard(JoinPoint jp){
 		User_Board user_board = (User_Board) jp.getArgs()[0];
 		System.out.println("User Board Created: " + user_board.getB_id() + " " + user_board.getRole());
 		logger.info("User Board Created: " + user_board.getB_id() + " " + user_board.getRole());
 	}
 	
-	@Before("execution(* com.revature.dao.User_BoardDaoImpl.changeBoardName(..))")
-	public void hijackChangeUser_BoardName(JoinPoint jp){
+	@Before("execution(* com.revature.dao.User_BoardDaoImpl.updateUserRoleBoard(..))")
+	public void hijackUpdateUserRoleBoard(JoinPoint jp){
 		User_Board user_board = (User_Board) jp.getArgs()[0];
 		System.out.println("User Board Name Changed: " + user_board.getB_id() + " " + user_board.getRole());
 		logger.info("User Board Name Change: " + user_board.getB_id() + " " + user_board.getRole());
 	}
 	
-	@Before("execution(* com.revature.dao.User_BoardDaoImpl.deleteBoard(..))")
-	public void hijackDeleteUser_Board(JoinPoint jp){
+	@Before("execution(* com.revature.dao.User_BoardDaoImpl.removeUserFromBoard(..))")
+	public void hijackRemoveUserFromBoard(JoinPoint jp){
 		User_Board user_board = (User_Board) jp.getArgs()[0];
 		System.out.println("User Board Deleted: " + user_board.getB_id() + " " + user_board.getRole());
 		logger.info("User Board Deleted: " + user_board.getB_id() + " " + user_board.getRole());
@@ -205,6 +244,52 @@ public class AspectJello {
 		System.out.println("User Deleted: " + use.getU_id() + " " + use.getU_email());
 		logger.info("User Deleted: " + use.getU_id() + " " + use.getU_email());
 	
+	}
+	
+	public static void main(String[] args) {
+		ApplicationContext ac = new ClassPathXmlApplicationContext("beans.xml");
+		
+		AppServices app = (AppServices) ac.getBean("AppService");
+		
+		Users usr = new Users();
+		Board brd = new Board();
+		User_Board userBoard = new User_Board();
+		User_Board_Id userBoardId = new User_Board_Id();
+		Roles userRole = new Roles();
+		List<History> history = new ArrayList<>();
+		
+		usr.setU_email("tom@java.com");
+		usr.setU_password("123");
+		usr.setU_id(4);
+		
+		//app.newUser(usr);
+		
+		userRole.setR_id(1);
+		
+		brd.setB_id(1);
+		brd.setB_name("Speedo");
+		//app.createBoard(brd);
+		
+		userBoardId.setBoard(brd);
+		userBoardId.setUser(usr);
+		
+		userBoard.setB_id(userBoardId);
+		userBoard.setRole(userRole);
+		//app.addUserToBoard(userBoard);
+		history = app.getHistoryByBoard(brd);
+		
+		
+		System.out.println(usr);
+		System.out.println(brd);
+		System.out.println(userBoardId);
+		System.out.println(userBoard);
+		System.out.println(history);
+		//app.updateUser_Board_Id(userBoardId);
+		
+		
+		
+		
+		
 	}
 		
 	

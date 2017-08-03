@@ -1,4 +1,5 @@
 package com.revature.services;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -11,12 +12,14 @@ import com.revature.dao.HistoryDao;
 import com.revature.dao.Jello_BiteDao;
 import com.revature.dao.Swim_LaneDao;
 import com.revature.dao.TaskDao;
+import com.revature.dao.User_BoardDao;
 import com.revature.dao.User_Board_IdDao;
 import com.revature.dao.UsersDao;
 import com.revature.dao.UsersDaoImpl;
 import com.revature.pojo.Board;
 import com.revature.pojo.History;
 import com.revature.pojo.Jello_Bite;
+import com.revature.pojo.Roles;
 import com.revature.pojo.Swim_Lane;
 import com.revature.pojo.Task;
 import com.revature.pojo.User_Board;
@@ -34,7 +37,7 @@ public class AppServices {
     private BoardDao boarddao;
     
     @Autowired
-    private User_Board_IdDao user_board_iddao;
+    private User_BoardDao user_boarddao;
     
     @Autowired
     private Jello_BiteDao jello_bitedao;
@@ -54,8 +57,6 @@ public class AppServices {
 //      
 //  }
     
-    
-    
     /*
      * =====================User Services =============================
      */
@@ -63,18 +64,30 @@ public class AppServices {
         
         return usersdao.getAllBoardsByUser(use);
     }
-    
+    /**
+     * Tested and working by:Jonny
+     * @param use
+     */
     public void deleteUser(Users use){
         usersdao.deleteUser(use);
     }
     
-    public void updateUserRoles(Users use){
-        usersdao.updateUserRoles(use);
+    /**
+     *  Changed method name because can't update role in user
+     * @param use
+     */
+    public void updateUser(Users use){
+        usersdao.updateUser(use);
     }
     
+    /**
+     * Tested and working by:Jonny
+     * @param use
+     */
     public void newUser(Users use){
         usersdao.newUser(use);
     }
+    
     
     public Users getUserByEmail(Users use){
         UsersDao dao = new UsersDaoImpl();
@@ -118,33 +131,33 @@ public class AppServices {
      */
     
     /*
-     * ======================= User_Board_Id Services ===============================
+     * ======================= User_Board Services ===============================
      */
     
  
-  	public void addUserToBoard(User_Board_Id userBoardId){
-  		 user_board_iddao.addUserToBoard(userBoardId);
+  	public void addUserToBoard(User_Board userBoard){
+  		 user_boarddao.addUserToBoard(userBoard);
   	}
   	
   	
-  	public User_Board_Id getUser_Board_Id(User_Board_Id userBoardId){
-  		return  user_board_iddao.getUser_Board_Id(userBoardId);
+  	public Roles getUserBoardRole(User_Board userBoard){
+  		return  user_boarddao.getRoleForUserOnBoard(userBoard);
   	}
   	
   	
-  	public void updateUser_Board_Id(User_Board_Id userBoardId){
-  		user_board_iddao. updateUser_Board_Id(userBoardId);
+  	public void updateUser_Board(User_Board userBoard){
+  		user_boarddao.updateUserRoleOnBoard(userBoard);
   	}
   	
   	
-  	public void removeUser_Board_Id(User_Board_Id userBoardId){
-  		user_board_iddao.removeUser_Board_Id(userBoardId);
+  	public void removeUser_Board(User_Board userBoard){
+  		user_boarddao.removeUserFromBoard(userBoard);
   	}
     
     
     
     /*
-     * ======================= End User_Board_Id Services ===============================
+     * ======================= End User_Board Services ===============================
      */
     
     
@@ -248,6 +261,15 @@ public class AppServices {
     	
     	public void updateHistory(History history){
     		historydao.updateHistory(history);
+    	}
+    	
+    	public List<History>getHistoryByBoard(Board board){
+    		List<History> histList = new ArrayList<History>();
+    		List<Swim_Lane> slList = boarddao.getAllSwimLaneByBoard(board);
+    		for(Swim_Lane swim : slList){
+    			histList.addAll(historydao.getHistoryBySwimLane(swim));
+    		}
+    		return histList;
     	}
     	
     	

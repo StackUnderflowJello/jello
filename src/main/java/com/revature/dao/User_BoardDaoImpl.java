@@ -7,7 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
-import com.revature.pojo.Board;
+import com.revature.pojo.Roles;
+import com.revature.pojo.User_Board;
 
 
 @Repository
@@ -18,31 +19,31 @@ public class User_BoardDaoImpl implements User_BoardDao{
 	private SessionFactory sessionFactory;
 
 	@Override
-	public void createBoard(Board board) {
+	public void addUserToBoard(User_Board user_board) {
 		Session session = sessionFactory.getCurrentSession();
-		session.save(board);
+		session.save(user_board);
 		
 	}
 
 	@Override
-	public String getBoardName(Board board) {
-		Board retBoard;
+	public Roles getRoleForUserOnBoard(User_Board user_board) {
+		User_Board retBoard;
 		
 		Session session = sessionFactory.getCurrentSession();
-		retBoard = (Board) session.get(Board.class, board.getB_id());
-		return retBoard.getB_name();
+		retBoard = (User_Board) session.get(User_Board.class, user_board.getB_id());
+		return retBoard.getRole();
 	}
 
 	@Override
-	public void changeBoardName(Board board) {
+	public void updateUserRoleOnBoard(User_Board user_board) {
 		Session session = sessionFactory.getCurrentSession();
-		session.update(board);
+		session.update(user_board);
 		
 	}
 
 	@Override
-	public void deleteBoard(Board board) {
+	public void removeUserFromBoard(User_Board user_board) {
 		Session session = sessionFactory.getCurrentSession();
-		session.delete(board);		
+		session.delete(user_board);		
 	}
 }

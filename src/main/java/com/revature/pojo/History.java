@@ -26,22 +26,22 @@ public class History implements Serializable{
 	private Jello_Bite jello_bite;
 	@ManyToOne
 	@JoinColumn(name="prev_lane_id",referencedColumnName="col_id") //what lane the jello bite was moved out of
-	private Swim_Lane_Type swim_lane_type;
+	private Swim_Lane swim_lane;
 	@ManyToOne
 	@JoinColumn(name="new_lane_id",referencedColumnName="col_id") //what lane the jello bite was moved into
-	private Swim_Lane_Type swim_lane_type_new;
+	private Swim_Lane swim_lane_new;
 	@Column
 	private String action_date;
 	
 	public History(){}
 
-	public History(int history_id, Jello_Bite jello_bite, Swim_Lane_Type swim_lane_type,
-			Swim_Lane_Type swim_lane_type_new, String action_date) {
+	public History(int history_id, Jello_Bite jello_bite, Swim_Lane swim_lane,
+			Swim_Lane swim_lane_new, String action_date) {
 		super();
 		this.history_id = history_id;
 		this.jello_bite = jello_bite;
-		this.swim_lane_type = swim_lane_type;
-		this.swim_lane_type_new = swim_lane_type_new;
+		this.swim_lane = swim_lane;
+		this.swim_lane_new = swim_lane_new;
 		this.action_date = action_date;
 	}
 
@@ -61,20 +61,20 @@ public class History implements Serializable{
 		this.jello_bite = jello_bite;
 	}
 
-	public Swim_Lane_Type getSwim_lane_type() {
-		return swim_lane_type;
+	public Swim_Lane getSwim_lane() {
+		return swim_lane;
 	}
 
-	public void setSwim_lane_type(Swim_Lane_Type swim_lane_type) {
-		this.swim_lane_type = swim_lane_type;
+	public void setSwim_lane(Swim_Lane swim_lane) {
+		this.swim_lane = swim_lane;
 	}
 
-	public Swim_Lane_Type getSwim_lane_type_new() {
-		return swim_lane_type_new;
+	public Swim_Lane getSwim_lane_new() {
+		return swim_lane_new;
 	}
 
-	public void setSwim_lane_type_new(Swim_Lane_Type swim_lane_type_new) {
-		this.swim_lane_type_new = swim_lane_type_new;
+	public void setSwim_lane_new(Swim_Lane swim_lane_new) {
+		this.swim_lane_new = swim_lane_new;
 	}
 
 	public String getAction_date() {
@@ -87,8 +87,8 @@ public class History implements Serializable{
 
 	@Override
 	public String toString() {
-		return "History [history_id=" + history_id + ", jello_bite=" + jello_bite + ", swim_lane_type=" + swim_lane_type
-				+ ", swim_lane_type_new=" + swim_lane_type_new + ", action_date=" + action_date + "]";
+		return "History [history_id=" + history_id + ", jello_bite=" + jello_bite + ", swim_lane=" + swim_lane
+				+ ", swim_lane_new=" + swim_lane_new + ", action_date=" + action_date + "]";
 	}
 	
 	
