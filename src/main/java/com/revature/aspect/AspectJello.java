@@ -7,12 +7,11 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
 
-import com.revature.dao.User_Board_IdDao;
-import com.revature.dao.UsersDao;
-import com.revature.dao.UsersDaoImpl;
 import com.revature.pojo.Board;
 import com.revature.pojo.Jello_Bite;
 import com.revature.pojo.Task;
+import com.revature.pojo.User_Board;
+import com.revature.pojo.User_Board_Id;
 import com.revature.pojo.Users;
 
 @Aspect
@@ -83,7 +82,8 @@ public class AspectJello {
 
 	/**
 	 * logging the createBiteTask(),
-	 * updateBiteTask()
+	 * updateBiteTask(),
+	 * deleteBiteTask()
 	 * @param jp
 	 */
 	
@@ -101,27 +101,69 @@ public class AspectJello {
 		logger.info("Tasked Updated: " + task.getT_id() + " " + task.getT_content());
 	}
 	
+	@Before("execution(* com.revature.dao.TaskDaoImpl.deleteBiteTask(..))")
+	public void hijackDeleteBiteTask(JoinPoint jp){
+		Task task = (Task) jp.getArgs()[0];
+		System.out.println("Tasked Deleted: " + task.getT_id() + " " + task.getT_content());
+		logger.info("Tasked Deleted: " + task.getT_id() + " " + task.getT_content());
+	}
+	
 	/**
 	 * logging the addUserToBoard()
+	 * updateUser_Board_Id()
+	 * removeUser_Board_Id()
 	 * @param jp
 	 */
 	@Before("execution(* com.revature.dao.User_Board_IdDaoImpl.addUserToBoard(..))")
 	public void hijackAddUserToBoard(JoinPoint jp){
-		User_Board_IdDao userBoardId = (User_Board_IdDao) jp.getArgs()[0];
+		User_Board_Id userBoardId = (User_Board_Id) jp.getArgs()[0];
 		System.out.println("User added to board: " + userBoardId);
 		logger.info("User added to board: " + userBoardId);
 	
 	}
+	
+	@Before("execution(* com.revature.dao.User_Board_IdDaoImpl.updateUser_Board_Id(..))")
+	public void hijackUpdateUser_Board_Id(JoinPoint jp){
+		User_Board_Id userBoardId = (User_Board_Id) jp.getArgs()[0];
+		System.out.println("User Board ID updated: " + userBoardId);
+		logger.info("User Board ID updated: " + userBoardId);
+	
+	}
+	
+	@Before("execution(* com.revature.dao.User_Board_IdDaoImpl.removeUser_Board_Id(..))")
+	public void hijackRemoveUser_Board_Id(JoinPoint jp){
+		User_Board_Id userBoardId = (User_Board_Id) jp.getArgs()[0];
+		System.out.println("User Board Id removed: " + userBoardId);
+		logger.info("User Board Id removed: " + userBoardId);
+	
+	}
 		
 	/**
-	 * no methods currently in the User_BoardDaoImpl
+	 * logging the createBoard(),
+	 * changeBoardName(),
+	 * deleteBoardName()
 	 * @param jp
 	 */
 	
-	@Before("execution(* com.revature.dao.User_BoardDaoImpl.*Board(..))")
-	public void hijackUser_BoardDaoImpl(JoinPoint jp){
-		System.out.println("Logged from User_Board Dao Impl Method");
-		jp.getArgs();
+	@Before("execution(* com.revature.dao.User_BoardDaoImpl.createBoard(..))")
+	public void hijackCreateUser_Board(JoinPoint jp){
+		User_Board user_board = (User_Board) jp.getArgs()[0];
+		System.out.println("User Board Created: " + user_board.getB_id() + " " + user_board.getRole());
+		logger.info("User Board Created: " + user_board.getB_id() + " " + user_board.getRole());
+	}
+	
+	@Before("execution(* com.revature.dao.User_BoardDaoImpl.changeBoardName(..))")
+	public void hijackChangeUser_BoardName(JoinPoint jp){
+		User_Board user_board = (User_Board) jp.getArgs()[0];
+		System.out.println("User Board Name Changed: " + user_board.getB_id() + " " + user_board.getRole());
+		logger.info("User Board Name Change: " + user_board.getB_id() + " " + user_board.getRole());
+	}
+	
+	@Before("execution(* com.revature.dao.User_BoardDaoImpl.deleteBoard(..))")
+	public void hijackDeleteUser_Board(JoinPoint jp){
+		User_Board user_board = (User_Board) jp.getArgs()[0];
+		System.out.println("User Board Deleted: " + user_board.getB_id() + " " + user_board.getRole());
+		logger.info("User Board Deleted: " + user_board.getB_id() + " " + user_board.getRole());
 	}
 
 
