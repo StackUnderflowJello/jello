@@ -1,4 +1,4 @@
-#myModal1 {
+#loginModal {
     display: block; 
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -13,7 +13,7 @@
 }
 
 /* Modal Content */
-.modal-content2 {
+.login-modal-content {
     display: block;
     position: relative;
     background-color: #fefefe;
@@ -30,7 +30,7 @@
 
 /* Add Animation */
 /* The Modal (background) */
-.modal2 {
+.login-modal {
     display: block; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -45,7 +45,7 @@
 }
 
 /* Modal Content */
-.modal-content2 {
+.login-modal-content {
     position: relative;
     background-color: #fefefe;
     margin: auto;
@@ -70,14 +70,6 @@
     to {top:0; opacity:1}
 }
 
-/* The Close Button */
-.close {
-    color: white;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
 .close:hover,
 .close:focus {
     color: #000;
@@ -85,26 +77,18 @@
     cursor: pointer;
 }
 
-.modal-header {
+.login-modal-header {
     padding: 2px 16px;
     background-color: #5cb85c;
     color: white;
 }
 
-.modal-body {padding: 2px 16px;}
+.login-modal-body {padding: 2px 16px;}
 
-.modal-footer {
+.login-modal-footer {
     padding: 2px 16px;
     background-color: #5cb85c;
     color: white;
-}
-
-.container {
-  text-align: center;
-}
-
-.pokesearch {
-  display: none;
 }
 
 .register-body {
@@ -126,8 +110,4 @@
 
 #register-header {
     display: none;
-}
-
-#pokemessage {
-  display: none;
 }
