@@ -1,4 +1,4 @@
-var app = angular.module("app", []);
+angular.module('myApp');
 
 app.controller("HttpGetController", function($scope, $http) {
 

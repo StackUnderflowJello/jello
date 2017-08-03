@@ -1,4 +1,4 @@
-#myModal {
+#myModal1 {
     display: block; 
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -13,7 +13,7 @@
 }
 
 /* Modal Content */
-.modal-content {
+.modal-content2 {
     display: block;
     position: relative;
     background-color: #fefefe;
@@ -30,7 +30,7 @@
 
 /* Add Animation */
 /* The Modal (background) */
-.modal {
+.modal2 {
     display: block; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -45,7 +45,7 @@
 }
 
 /* Modal Content */
-.modal-content {
+.modal-content2 {
     position: relative;
     background-color: #fefefe;
     margin: auto;

@@ -25,22 +25,22 @@ public class AddUserToBoardCtrl {
 		HttpSession session = req.getSession();
 		Board curr = (Board) session.getAttribute("board");
 		
-		//json is the user to be added
-		//get the userDTO [just their email]
-		ObjectMapper mapper = new ObjectMapper();
-		UserDTO user_dto = mapper.readValue(json, UserDTO.class);
-		
-		//convert userDTO to user
-		Users user = new Users();
-		user.setU_email(user_dto.getEmail());
-		
-		//need to creates roles, user_board_id object, then combine to get user_board
-		Roles role = new Roles(1, "User");
-		User_Board_Id ub_id = new User_Board_Id(curr, user);
-		User_Board ub = new User_Board(ub_id, role);
-		
-		//add record to user_board table
-		new Service().addUserToBoard(ub);
+//		//json is the user to be added
+//		//get the userDTO [just their email]
+//		//ObjectMapper mapper = new ObjectMapper();
+//		UserDTO user_dto = mapper.readValue(json, UserDTO.class);
+//		
+//		//convert userDTO to user
+//		Users user = new Users();
+//		user.setU_email(user_dto.getEmail());
+//		
+//		//need to creates roles, user_board_id object, then combine to get user_board
+//		Roles role = new Roles(1, "User");
+//		User_Board_Id ub_id = new User_Board_Id(curr, user);
+//		User_Board ub = new User_Board(ub_id, role);
+//		
+//		//add record to user_board table
+//		new Service().addUserToBoard(ub);
 	}
 	
 }

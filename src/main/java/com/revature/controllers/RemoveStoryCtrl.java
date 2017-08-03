@@ -12,6 +12,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.dto.JelloDTO;
 import com.revature.pojo.Board;
 import com.revature.pojo.Jello_Bite;
+import com.revature.services.AppServices;
 
 @RestController
 public class RemoveStoryCtrl {
@@ -19,20 +20,20 @@ public class RemoveStoryCtrl {
 	@RequestMapping(value = "/removeStory", method = RequestMethod.POST)
 	public void removeStory(HttpServletRequest req, @RequestBody String json){
 		//get Board from session
-		HttpSession session = req.getSession();
-		Board curr = (Board) session.getAttribute("board");
-		
-		//get json from the client and parse it into the JelloDTO
-		ObjectMapper mapper = new ObjectMapper();
-		JelloDTO jello_dto = mapper.readValue(json, JelloDTO.class);
-		
-		//convert JelloDTO to Jello
-		Jello_Bite jello = new Jello_Bite();
-		jello.setBite_name(jello_dto.getStory_name());
-		jello.setJello_point(jello_dto.getPoints());
+//		HttpSession session = req.getSession();
+//		Board curr = (Board) session.getAttribute("board");
+//		
+//		//get json from the client and parse it into the JelloDTO
+//		ObjectMapper mapper = new ObjectMapper();
+//		//JelloDTO jello_dto = mapper.readValue(json, JelloDTO.class);
+//		
+//		//convert JelloDTO to Jello
+//		Jello_Bite jello = new Jello_Bite();
+//		jello.setBite_name(jello_dto.getStory_name());
+//		jello.setJello_point(jello_dto.getPoints());
 		
 		//delete jello from db
-		new Service().removeBite(jello);
+		//new AppServices().removeBite(jello);
 		
 		//make sure to update view
 	}
