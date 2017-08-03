@@ -24,7 +24,7 @@ app.controller("HttpGetController", function($scope, $http) {
     alert("Successfully logged out.");
      location.reload();
   }
-
+});
 
 app.controller("loginController", function($scope) {
 
@@ -91,9 +91,9 @@ $scope.showRegister = function() {
     $("#login-trigger").css("display", "none");
     $("#showLogin").css("display", "block");
   }
+}
 
-
-});
+);
 
 
 function setUser(user){
