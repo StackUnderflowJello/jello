@@ -21,4 +21,5 @@ public interface UsersDao {
 	
 	//DELETE
 	public void deleteUser(Users use);
+	public void deleteUserFromBoardById(Users use);
 }

@@ -2,7 +2,6 @@ package com.revature.dao;
 
 import static org.hibernate.criterion.Restrictions.ilike;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -65,6 +64,24 @@ public class UsersDaoImpl implements UsersDao{
 		crit.add(ilike("USER_BOARD", use.getU_id()));
 		
 		return (List<User_Board>) crit.list();
+	}
+
+	@Override
+	public void deleteUserFromBoardById(Users use) {
+		System.out.println("Deleting User from board by ID");
+		
+		// Get session
+		Session session = sessionFactory.getCurrentSession();
+		
+		// Make criteria since 
+		Criteria crit = session.createCriteria(User_Board.class);
+		crit.add(ilike("U_ID", use.getU_id()));
+		
+		//Get the user_board from the quered results
+		User_Board ub = (User_Board) crit.list().get(0);
+		
+		//Remove the user from the Board
+		session.delete(ub);
 	}
 
 }

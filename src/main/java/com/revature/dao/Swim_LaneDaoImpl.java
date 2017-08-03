@@ -1,16 +1,21 @@
 package com.revature.dao;
 
+import static org.hibernate.criterion.Restrictions.ilike;
+
 import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import com.revature.pojo.Jello_Bite;
 import com.revature.pojo.Swim_Lane;
-import static org.hibernate.criterion.Restrictions.ilike;
 
+@Repository
+@Component
 public class Swim_LaneDaoImpl implements Swim_LaneDao {
 
 	@Autowired

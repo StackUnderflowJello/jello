@@ -3,9 +3,13 @@ package com.revature.dao;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import com.revature.pojo.User_Board_Id;
 
+@Repository
+@Component
 public class User_Board_IdDaoImpl implements User_Board_IdDao {
 
 	@Autowired

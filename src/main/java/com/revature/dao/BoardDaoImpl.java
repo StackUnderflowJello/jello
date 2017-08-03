@@ -13,7 +13,6 @@ import org.springframework.stereotype.Repository;
 
 import com.revature.pojo.Board;
 import com.revature.pojo.Swim_Lane;
-import com.revature.pojo.User_Board;
 
 @Repository
 @Component
