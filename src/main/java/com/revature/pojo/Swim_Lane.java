@@ -31,6 +31,16 @@ public class Swim_Lane implements Serializable {
 	private Swim_Lane_Type swim_lane_type;
 	
 	public Swim_Lane(){}
+	
+	
+	public Swim_Lane(int lane_id, Board board, Swim_Lane_Type swim_lane_type) {
+		super();
+		this.lane_id = lane_id;
+		this.board = board;
+		this.swim_lane_type = swim_lane_type;
+	}
+
+
 
 	public int getLane_id() {
 		return lane_id;
