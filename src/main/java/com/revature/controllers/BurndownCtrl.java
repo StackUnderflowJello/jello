@@ -1,4 +1,4 @@
-package com.revature.controller;
+package com.revature.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,10 +18,10 @@ public class BurndownCtrl {
 
 	@RequestMapping(value="/burndown", method=RequestMethod.GET)
 	public ModelAndView openChart(){
-		return new ModelAndView("/static/features/burndown/burndown.html");
+		return new ModelAndView("/static/fragments/burndown.html");
 	}
 	
-	@RequestMapping(value="/chart", method=RequestMethod.GET)
+	@RequestMapping(value="/static/chart", method=RequestMethod.GET)
 	public @ResponseBody String burnDown() throws JsonProcessingException{
 		List<HistoryDTO> json = new ArrayList<>();
 		json.add(new HistoryDTO("2017-07-24", 80));

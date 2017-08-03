@@ -1,4 +1,30 @@
-var app = angular.module('myApp')
+
+angular.module('myApp');
+
+app.controller("HttpGetController", function($scope, $http) {
+
+  $scope.keyword = '';
+
+  $scope.GetAllData = function() {
+    $("#pokemessage").css("display", "block");
+    setTimeout(function(){
+     $("#pokemessage").css("display", "none");
+    }, 2000);
+    $http.get('http://pokeapi.co/api/v2/pokemon/' + $scope.keyword)
+      .then(function(jaundice) {
+        $scope.name = jaundice.data.name;
+        $scope.height = jaundice.data.height;
+        $scope.id = jaundice.data.id;
+      });
+  };
+
+  $scope.logout = function() {
+    localStorage.clear();
+    console.log("Storage cleared.");
+    alert("Successfully logged out.");
+     location.reload();
+  }
+
 
 app.controller("loginController", function($scope) {
 

@@ -12,21 +12,19 @@
    width: 100%;
 }
 
-.modal {
+.modal1 {
     display: block;
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     left: 80%;
-    top: 0%;
+    top: 10%;
     height: 260px;
 }
 
-/* Modal Body */
-.modal-body {padding: 2px 16px;}
 
 
 /* Modal Content/Box */
-.modal-content {
+.modal-content1 {
     background-color: #fefefe;
     margin: 5% auto; /* 15% from the top and centered */
     padding: 20px;

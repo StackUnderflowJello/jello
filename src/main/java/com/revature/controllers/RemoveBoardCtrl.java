@@ -20,7 +20,9 @@ public class RemoveBoardCtrl {
 		Board curr = (Board) session.getAttribute("board");
 		
 		//cascade delete board
+
 	//	new AppServices().removeBoard(curr);
+
 		
 		//make sure to refresh view after this
 	}
