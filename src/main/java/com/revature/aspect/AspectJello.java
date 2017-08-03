@@ -266,18 +266,7 @@ public class AspectJello {
 		logger.info("User removed: " + usr.getU_email());
 		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+		
 	public static void main(String[] args) {
 		ApplicationContext ac = new ClassPathXmlApplicationContext("beans.xml");
 		
@@ -317,10 +306,6 @@ public class AspectJello {
 		System.out.println(userBoard);
 		System.out.println(history);
 		//app.updateUser_Board_Id(userBoardId);
-		
-		
-		
-		
 		
 	}
 		
