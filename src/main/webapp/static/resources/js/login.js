@@ -24,7 +24,7 @@ app.controller("HttpGetController", function($scope, $http) {
     alert("Successfully logged out.");
      location.reload();
   }
-
+});
 
 app.controller("loginController", function($scope) {
 
@@ -34,6 +34,7 @@ app.controller("loginController", function($scope) {
       $scope.hideModal();
     }
   }
+
   
   var username = "stackunderflow";
   var password = "123";
@@ -93,7 +94,7 @@ $scope.showRegister = function() {
   }
 
 
-});
+
 
 
 function setUser(user){
@@ -116,3 +117,5 @@ function getUser() {
     return parsed["user"];
   }
 }
+
+});

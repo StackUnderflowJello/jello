@@ -4,14 +4,17 @@
 
 var app = angular.module('myApp', ['ngRoute']) //[] tells angular to create a project with the name passed in
 											//not providing the [] will tell angular one already exists
-
-
+ 
 
 app.config(function($routeProvider){
 	
 	$routeProvider
 		.when("/", {
-			templateUrl: "fragments/stand.html"
+			templateUrl: "fragments/scrumboard.html"
+		})
+		
+		.when("/scrumboard", {
+			templateUrl: "fragments/scrumboard.html"
 		})
 		
 		.when("/standup", {
@@ -36,4 +39,10 @@ app.config(function($routeProvider){
 				
 	
 	
+});
+
+var dragApp = angular.module('ExampleApp', ['btford.dragon-drop']).
+controller('dragCtrl', function ($scope) {
+  $scope.things = ['one', 'two', 'three'];
+  $scope.otherThings = [];
 });
