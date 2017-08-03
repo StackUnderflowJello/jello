@@ -1,4 +1,5 @@
-var app = angular.module("app", []);
+
+angular.module('myApp');
 
 app.controller("HttpGetController", function($scope, $http) {
 
@@ -24,24 +25,22 @@ app.controller("HttpGetController", function($scope, $http) {
      location.reload();
   }
 
-});
 
-app.controller("powerController", function($scope) {
+app.controller("loginController", function($scope) {
 
   window.onload = function() {
     var user = getUser();
     if(user != null) {
       $scope.hideModal();
-      $('.pokesearch').css("display", "block");
     }
   }
   
   var username = "stackunderflow";
   var password = "123";
-   var regUsername = "";
-    var regPassword = "";
-    var firstname = "";
-    var lastname = "";
+  var regUsername = "";
+  var regPassword = "";
+  var firstname = "";
+  var lastname = "";
   
   $scope.username = '';
   $scope.password = '';
@@ -50,7 +49,6 @@ app.controller("powerController", function($scope) {
   $scope.login = function() {
     console.log($scope.username);
     if($scope.username === username && $scope.password === password) {
-      $(".pokesearch").css("display", "block");
       $('.login').css('display', 'none');
       $('.modal-button').css('display', 'none');
       $scope.hideModal();
@@ -69,7 +67,7 @@ app.controller("powerController", function($scope) {
     } 
 
   $scope.hideModal = function() {
-    $("#myModal").css("display", "none");
+    $("#loginModal").css("display", "none");
   }
 
   $scope.showLogin = function() {
@@ -118,29 +116,3 @@ function getUser() {
     return parsed["user"];
   }
 }
-
-// Get the modal
-var modal = document.getElementById('myModal');
-
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on the button, open the modal 
-// Get the modal
-var modal = document.getElementById('myModal');
-
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks anywhere outside of the modal, close it
-//window.onclick = function(event) {
-  //  if (event.target == modal) {
-    //    modal.style.display = "none";
-    //}
-//}

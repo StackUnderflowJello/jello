@@ -23,23 +23,23 @@ public class RemoveUserFromBoardCtrl {
 	@RequestMapping(value = "/removeUser", method = RequestMethod.POST)
 	public void removeUserFromBoard(HttpServletRequest req, @RequestBody String json) throws JsonParseException, JsonMappingException, IOException{
 		//get board from session
-		HttpSession session = req.getSession();
-		Board curr = (Board) session.getAttribute("board");
-		
-		//get the userDTO from json
-		ObjectMapper mapper = new ObjectMapper();
-		UserDTO user_dto = mapper.readValue(json, UserDTO.class); 
-		
-		//convert userDTO to user
-		Users user = new Users();
-		user.setU_email(user_dto.getEmail());
-		
-		//get userByEmail from service to get the id
-		user = new Service().getUserByEmail(user);
-		
-		//delete user from user_board table by id
-		//need to do a criteria here
-		new Service().deleteUserFromBoardById(user);
+//		HttpSession session = req.getSession();
+//		Board curr = (Board) session.getAttribute("board");
+//		
+//		//get the userDTO from json
+//		ObjectMapper mapper = new ObjectMapper();
+//		UserDTO user_dto = mapper.readValue(json, UserDTO.class); 
+//		
+//		//convert userDTO to user
+//		Users user = new Users();
+//		user.setU_email(user_dto.getEmail());
+//		
+//		//get userByEmail from service to get the id
+//		user = new Service().getUserByEmail(user);
+//		
+//		//delete user from user_board table by id
+//		//need to do a criteria here
+//		new Service().deleteUserFromBoardById(user);
 	}
 	
 }

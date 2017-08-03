@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Modal</title>
-	<link href="css/modalstyle.css" rel="stylesheet">
+	<link href="static/resources/css/modalstyle.css" rel="stylesheet">
 	<link data-require="bootstrap@*" data-semver="4.0.5" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" />
 </head>
 <body ng-app="app">
@@ -13,16 +13,16 @@
 </div>
 
 <!-- The Modal -->
-<div id="myModal" class="modal login" >
+<div id="loginModal" class="modal login-modal login" >
 
   <!-- Modal content -->
-  <div class="modal-content" ng-controller="powerController">
-    <div class="modal-header">
+  <div class="modal-content login-modal-content" ng-controller="powerController">
+    <div class="modal-header login-modal-header">
     
       <h2 id="login-header">Login!</h2>
       <h2 id="register-header">Register!</h2>
     </div>
-    <div class="modal-body">
+    <div class="modal-body login-modal-body">
     	<div class="login-body" >
     		<label>Username</label><br>
 	       <input type="text" name="username" ng-model="username" required="" /><br>
@@ -40,7 +40,7 @@
 	       	<input ng-keyup="$event.keyCode == 13 ? register() : null" type="text" name="lastname" ng-model="lastname" required="" /><br>
       	</div>
     </div>
-    <div class="modal-footer">
+    <div class="modal-footer login-modal-footer">
        <button class="btn btn-primary" id="login-trigger" ng-click="login()">Login</button>
        <button class="btn btn-primary" id="showLogin" ng-click="showLogin()">Back to Login</button>
        <button class="btn btn-primary" id="showRegister" ng-click="showRegister()">Not Registered?</button>

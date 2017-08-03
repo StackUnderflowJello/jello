@@ -2,13 +2,13 @@ package com.revature.controllers;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import javax.xml.ws.Service;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.pojo.Board;
+import com.revature.services.AppServices;
 
 @RestController
 public class RemoveBoardCtrl {
@@ -20,7 +20,9 @@ public class RemoveBoardCtrl {
 		Board curr = (Board) session.getAttribute("board");
 		
 		//cascade delete board
-		new Service().removeBoard(curr);
+
+	//	new AppServices().removeBoard(curr);
+
 		
 		//make sure to refresh view after this
 	}
