@@ -26,6 +26,17 @@ import com.revature.pojo.User_Board;
 import com.revature.pojo.User_Board_Id;
 import com.revature.pojo.Users;
 
+import com.revature.dao.User_Board_IdDao;
+
+
+import com.revature.pojo.Board;
+import com.revature.pojo.History;
+import com.revature.pojo.Jello_Bite;
+import com.revature.pojo.Swim_Lane;
+import com.revature.pojo.Task;
+
+import com.revature.pojo.User_Board_Id;
+import com.revature.pojo.Users;
 @Service("AppService")
 @Transactional
 public class AppServices {
@@ -56,7 +67,7 @@ public class AppServices {
 //      
 //      
 //  }
-    
+ 
     /*
      * =====================User Services =============================
      */
@@ -72,6 +83,7 @@ public class AppServices {
         usersdao.deleteUser(use);
     }
     
+
     /**
      *  Changed method name because can't update role in user
      * @param use
@@ -87,8 +99,7 @@ public class AppServices {
     public void newUser(Users use){
         usersdao.newUser(use);
     }
-    
-    
+
     public Users getUserByEmail(Users use){
         UsersDao dao = new UsersDaoImpl();
         return dao.getUserByEmail(use);
@@ -131,6 +142,7 @@ public class AppServices {
      */
     
     /*
+
      * ======================= User_Board Services ===============================
      */
     
