@@ -35,7 +35,7 @@
 	<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
 		<property name="username" value="proj2_user"> </property>
 		<property name="password" value="KowHg4mUKT"> </property>
-		<property name="url" value="jdbc:oracle:thin:@project2-jello.ctekf4i3putw.us-east-2.rds.amazonaws.com:1521:xe"></property>	
+		<property name="url" value="jdbc:oracle:thin:@project2-jello.ctekf4i3putw.us-east-2.rds.amazonaws.com:1521:orcl"></property>	
 </bean>
 
 <!-- Now Give that DataSourceobject to the SessionFactory -->

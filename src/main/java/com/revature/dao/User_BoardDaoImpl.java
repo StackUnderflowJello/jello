@@ -1,6 +1,9 @@
 package com.revature.dao;
 
 
+import static org.hibernate.criterion.Restrictions.ilike;
+
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +33,7 @@ public class User_BoardDaoImpl implements User_BoardDao{
 		User_Board retBoard;
 		
 		Session session = sessionFactory.getCurrentSession();
-		retBoard = (User_Board) session.get(User_Board.class, user_board.getB_id());
+		retBoard = (User_Board) session.get(User_Board.class, user_board.getUB_id());
 		return retBoard.getRole();
 	}
 

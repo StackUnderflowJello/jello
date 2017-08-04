@@ -1,6 +1,7 @@
 package com.revature.pojo;
 
 import java.io.Serializable;
+import java.util.Comparator;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -26,22 +27,22 @@ public class History implements Serializable{
 	private Jello_Bite jello_bite;
 	@ManyToOne
 	@JoinColumn(name="prev_lane_id",referencedColumnName="col_id") //what lane the jello bite was moved out of
-	private Swim_Lane swim_lane;
+	private Swim_Lane_Type swim_lane_type;
 	@ManyToOne
 	@JoinColumn(name="new_lane_id",referencedColumnName="col_id") //what lane the jello bite was moved into
-	private Swim_Lane swim_lane_new;
+	private Swim_Lane_Type swim_lane_type_new;
 	@Column
 	private String action_date;
 	
 	public History(){}
 
-	public History(int history_id, Jello_Bite jello_bite, Swim_Lane swim_lane,
-			Swim_Lane swim_lane_new, String action_date) {
+	public History(int history_id, Jello_Bite jello_bite, Swim_Lane_Type swim_lane_type,
+			Swim_Lane_Type swim_lane_type_new, String action_date) {
 		super();
 		this.history_id = history_id;
 		this.jello_bite = jello_bite;
-		this.swim_lane = swim_lane;
-		this.swim_lane_new = swim_lane_new;
+		this.swim_lane_type = swim_lane_type;
+		this.swim_lane_type_new = swim_lane_type_new;
 		this.action_date = action_date;
 	}
 
@@ -61,20 +62,20 @@ public class History implements Serializable{
 		this.jello_bite = jello_bite;
 	}
 
-	public Swim_Lane getSwim_lane() {
-		return swim_lane;
+	public Swim_Lane_Type getSwim_Lane_Type() {
+		return swim_lane_type;
 	}
 
-	public void setSwim_lane(Swim_Lane swim_lane) {
-		this.swim_lane = swim_lane;
+	public void setSwim_Lane_Type(Swim_Lane_Type swim_lane_type) {
+		this.swim_lane_type = swim_lane_type;
 	}
 
-	public Swim_Lane getSwim_lane_new() {
-		return swim_lane_new;
+	public Swim_Lane_Type getSwim_Lane_Type_new() {
+		return swim_lane_type_new;
 	}
 
-	public void setSwim_lane_new(Swim_Lane swim_lane_new) {
-		this.swim_lane_new = swim_lane_new;
+	public void setSwim_Lane_Type_new(Swim_Lane_Type swim_lane_type_new) {
+		this.swim_lane_type_new = swim_lane_type_new;
 	}
 
 	public String getAction_date() {
@@ -87,11 +88,16 @@ public class History implements Serializable{
 
 	@Override
 	public String toString() {
-		return "History [history_id=" + history_id + ", jello_bite=" + jello_bite + ", swim_lane=" + swim_lane
-				+ ", swim_lane_new=" + swim_lane_new + ", action_date=" + action_date + "]";
+		return "History [history_id=" + history_id + ", jello_bite=" + jello_bite + ", swim_lane_type=" + swim_lane_type
+				+ ", swim_lane_type_new=" + swim_lane_type_new + ", action_date=" + action_date + "]";
 	}
 	
-	
-	
-	
+	public static Comparator<History> histDateComparator = new Comparator<History>() {
+
+		public int compare(History hist1, History hist2) {
+		   String HistDate1 = hist1.getAction_date();
+		   String HistDate2 = hist2.getAction_date();
+		   return HistDate1.compareTo(HistDate2);
+	    }
+	};
 }

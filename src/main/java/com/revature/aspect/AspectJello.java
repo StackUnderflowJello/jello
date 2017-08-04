@@ -187,22 +187,22 @@ public class AspectJello {
 	@Before("execution(* com.revature.dao.User_BoardDaoImpl.addUserToBoard(..))")
 	public void hijackAddUserToBoard(JoinPoint jp){
 		User_Board user_board = (User_Board) jp.getArgs()[0];
-		System.out.println("User Board Created: " + user_board.getB_id() + " " + user_board.getRole());
-		logger.info("User Board Created: " + user_board.getB_id() + " " + user_board.getRole());
+		System.out.println("User Board Created: " + user_board.getUB_id() + " " + user_board.getRole());
+		logger.info("User Board Created: " + user_board.getUB_id() + " " + user_board.getRole());
 	}
 	
 	@Before("execution(* com.revature.dao.User_BoardDaoImpl.updateUserRoleBoard(..))")
 	public void hijackUpdateUserRoleBoard(JoinPoint jp){
 		User_Board user_board = (User_Board) jp.getArgs()[0];
-		System.out.println("User Board Name Changed: " + user_board.getB_id() + " " + user_board.getRole());
-		logger.info("User Board Name Change: " + user_board.getB_id() + " " + user_board.getRole());
+		System.out.println("User Board Name Changed: " + user_board.getUB_id() + " " + user_board.getRole());
+		logger.info("User Board Name Change: " + user_board.getUB_id() + " " + user_board.getRole());
 	}
 	
 	@Before("execution(* com.revature.dao.User_BoardDaoImpl.removeUserFromBoard(..))")
 	public void hijackRemoveUserFromBoard(JoinPoint jp){
 		User_Board user_board = (User_Board) jp.getArgs()[0];
-		System.out.println("User Board Deleted: " + user_board.getB_id() + " " + user_board.getRole());
-		logger.info("User Board Deleted: " + user_board.getB_id() + " " + user_board.getRole());
+		System.out.println("User Board Deleted: " + user_board.getUB_id() + " " + user_board.getRole());
+		logger.info("User Board Deleted: " + user_board.getUB_id() + " " + user_board.getRole());
 	}
 
 
@@ -273,7 +273,7 @@ public class AspectJello {
 		userBoardId.setBoard(brd);
 		userBoardId.setUser(usr);
 		
-		userBoard.setB_id(userBoardId);
+		userBoard.setUB_id(userBoardId);
 		userBoard.setRole(userRole);
 		//app.addUserToBoard(userBoard);
 		history = app.getHistoryByBoard(brd);

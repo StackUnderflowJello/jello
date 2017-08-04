@@ -18,25 +18,25 @@ public class User_Board implements Serializable{
 	private static final long serialVersionUID = -1067525463301858262L;
 	
 	@EmbeddedId
-	private User_Board_Id b_id;
+	private User_Board_Id ub_id;
 	@JoinColumn(name="r_id") //joining between two tables
 	@ManyToOne//connecting our Roles table.
 	private Roles role;
 	
 	public User_Board(){}
 
-	public User_Board(User_Board_Id b_id, Roles role) {
+	public User_Board(User_Board_Id ub_id, Roles role) {
 		super();
-		this.b_id = b_id;
+		this.ub_id = ub_id;
 		this.role = role;
 	}
 
-	public User_Board_Id getB_id() {
-		return b_id;
+	public User_Board_Id getUB_id() {
+		return ub_id;
 	}
 
-	public void setB_id(User_Board_Id b_id) {
-		this.b_id = b_id;
+	public void setUB_id(User_Board_Id ub_id) {
+		this.ub_id = ub_id;
 	}
 
 	public Roles getRole() {
@@ -49,7 +49,7 @@ public class User_Board implements Serializable{
 
 	@Override
 	public String toString() {
-		return "User_Board [b_id=" + b_id + ", role=" + role + "]";
+		return "User_Board [ub_id=" + ub_id + ", role=" + role + "]";
 	}
 	
 	

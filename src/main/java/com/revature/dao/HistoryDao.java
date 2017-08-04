@@ -3,7 +3,7 @@ package com.revature.dao;
 import java.util.List;
 
 import com.revature.pojo.History;
-import com.revature.pojo.Swim_Lane;
+import com.revature.pojo.Jello_Bite;
 
 public interface HistoryDao {
 
@@ -12,7 +12,7 @@ public interface HistoryDao {
     
     //READ
     public History getHistory(History history);
-    public List<History> getHistoryBySwimLane(Swim_Lane swim_lane);
+    public List<History> getHistoryByJello_Bite(Jello_Bite jello_bite);
     //UPDATE
     public void updateHistory(History history);
     
