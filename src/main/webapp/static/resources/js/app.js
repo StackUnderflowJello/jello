@@ -11,21 +11,21 @@ app.config(function($routeProvider){
 	
 	$routeProvider
 		.when("/", {
-			templateUrl: "fragments/stand.html"
+			templateUrl: "static/fragments/stand.html"
 		})
 		
 		.when("/standup", {
-			templateUrl: "fragments/stand.html"
+			templateUrl: "static/fragments/stand.html"
 		
 		})
 		
 		.when("/burndown", {
-			templateUrl: "fragments/burndown.html"
+			templateUrl: "static/fragments/burndown.html"
 			
 		})
 		
 		.when("/members", {
-			templateUrl: "fragments/members.html"
+			templateUrl: "static/fragments/members.html"
 			
 		})
 		

@@ -86,9 +86,4 @@ public class Jello_Bite implements Serializable {
 				+ ", jello_point=" + jello_point + "]";
 	}
 	
-	
-
-	
-	
-
 }

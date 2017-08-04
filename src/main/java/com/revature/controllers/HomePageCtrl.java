@@ -10,7 +10,13 @@ public class HomePageCtrl {
 		@RequestMapping("/home")
 		public ModelAndView home(){
 			System.out.println("HomePageCtrl");
-			return new ModelAndView("/static/homepage.html");
+			return new ModelAndView("static/homepage.html");
+		}
+		
+		@RequestMapping("/")
+		public ModelAndView directhome(){
+			System.out.println("HomePageCtrl");
+			return new ModelAndView("static/homepage.html");
 		}
 		
 		/*

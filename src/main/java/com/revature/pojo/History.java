@@ -95,8 +95,5 @@ public class History implements Serializable{
 		return "History [history_id=" + history_id + ", jello_bite=" + jello_bite + ", swim_lane=" + swim_lane
 				+ ", swim_lane_new=" + swim_lane_new + ", action_date=" + action_date + "]";
 	}
-	
-	
-	
-	
+		
 }

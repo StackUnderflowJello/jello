@@ -2,7 +2,6 @@ package com.revature.dao;
 
 import static org.hibernate.criterion.Restrictions.ilike;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Criteria;

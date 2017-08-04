@@ -13,9 +13,10 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<!-- CSS -->
-	<link rel="stylesheet" href="resources/css/navbar.css" />
-  	<link rel="stylesheet" href="resources/css/app.css" />
-  	<link rel="stylesheet" href="resources/css/style.css" />
+	<link rel="stylesheet" href="static/resources/css/navbar.css" />
+  	<link rel="stylesheet" href="static/resources/css/app.css" />
+  	<link rel="stylesheet" href="static/resources/css/style.css" />
+  	<link rel="stylesheet" href="static/resources/css/modalstyle.css" />
 
 <title>Homepage</title>
 </head>
@@ -129,14 +130,10 @@
 	       <input ng-keyup="$event.keyCode == 13 ? login() : null" type="password" name="password" ng-model="password" required="" /><br>
       	</div>
       	<div class="register-body" id="register-body">
-      		<label>Choose a Username</label><br>
-      	  	<input type="text" name="reg-username" ng-model="regUsername" required="" /><br>
-      	  	<label>Pick a Password</label><br>
-	       	<input type="password" name="reg-password" ng-model="regPassword" required="" /><br>
-	       	<label>Please enter your first name</label><br>
-	       	<input type="text" name="firstname" ng-model="firstname" required="" /><br>
-	       	<label>Please enter your surname</label><br>
-	       	<input ng-keyup="$event.keyCode == 13 ? register() : null" type="text" name="lastname" ng-model="lastname" required="" /><br>
+      		<label>Please enter your Email:</label><br>
+      	  	<input type="text" name="reg-email" ng-model="regEmail" required="" /><br>
+      	  	<label>Pick a Password: </label><br>
+	       	<input type="password" ng-keyup="$event.keyCode == 13 ? register() : null" name="reg-password" ng-model="regPassword" required="" /><br>
       	</div>
     </div>
     <div class="login-modal-footer">
@@ -150,13 +147,13 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
-    <script src="resources/js/app.js"></script>
-	<script src="resources/js/addStory.js"></script>
-	<script src="resources/js/canvasjs.min.js" type="text/javascript"></script>
-	<script src="resources/js/service.js"></script>
-	<script src="resources/js/controller.js"></script>
+    <script src="static/resources/js/app.js"></script>
+	<script src="static/resources/js/addStory.js"></script>
+	<script src="static/resources/js/canvasjs.min.js" type="text/javascript"></script>
+	<script src="static/resources/js/service.js"></script>
+	<script src="static/resources/js/controller.js"></script>
 	<!-- <script src="js/dragAndDrop.js"></script>-->
-	<script src="resources/js/login.js" type="text/javascript"></script>
-	<script src="resources/js/logout-controller.js"></script>
+	<script src="static/resources/js/login.js" type="text/javascript"></script>
+	<script src="static/resources/js/logout-controller.js"></script>
 </body>
 </html>

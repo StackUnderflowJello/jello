@@ -20,4 +20,3 @@ public interface User_BoardDao {
     //DELETE
     public void removeUserFromBoard(User_Board user_board);
 }
-

@@ -74,7 +74,5 @@ public class Swim_Lane implements Serializable {
 	public String toString() {
 		return "Swim_Lane [lane_id=" + lane_id + ", board=" + board + ", swim_lane_type=" + swim_lane_type + "]";
 	}
-	
-	
-	
+		
 }
