@@ -12,7 +12,7 @@ public interface TaskDao {
     
     //READ
     public void getBiteTask(Task task);
-    
+	public List<Task> getTasksByJelloBiteId(Jello_Bite jello_bite);    
     
     //UPDATE
     public void updateBiteTask(Task task);
@@ -20,6 +20,4 @@ public interface TaskDao {
     //DELETE
     public void deleteBiteTask(Task task);
 
-	//READ
-	public List<Task> getTasksByJelloBiteId(Jello_Bite jello_bite);
 }

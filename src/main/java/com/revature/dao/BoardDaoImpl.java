@@ -33,6 +33,22 @@ public class BoardDaoImpl implements BoardDao{
 		Session session = sessionFactory.getCurrentSession();
 		return (Board) session.get(Board.class, board.getB_id());
 	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Board> getAllBoardsByUser(Users use) {
+		Session session = sessionFactory.getCurrentSession();
+		
+		Criteria crit = session.createCriteria(User_Board_Id.class);
+		crit.createAlias("user", "u");
+		crit.add(eq("u.u_id", use.getU_id()));
+		Criteria crit2 = session.createCriteria(Board.class);
+		for(User_Board_Id ubi : (List<User_Board_Id>)crit.list()){
+			crit2.add(eq("b_id", ubi.getBoard().getB_id()));
+		}
+		
+		return (List<Board>) crit2.list();
+	}
 	
 	@Override
 	public void adminRenameBoard(Board board) {
@@ -53,22 +69,6 @@ public class BoardDaoImpl implements BoardDao{
 	public void updateBackGround(Board board) {
 		// TODO Auto-generated method stub
 		
-	}
-
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<Board> getAllBoardsByUser(Users use) {
-		Session session = sessionFactory.getCurrentSession();
-		
-		Criteria crit = session.createCriteria(User_Board_Id.class);
-		crit.createAlias("user", "u");
-		crit.add(eq("u.u_id", use.getU_id()));
-		Criteria crit2 = session.createCriteria(Board.class);
-		for(User_Board_Id ubi : (List<User_Board_Id>)crit.list()){
-			crit2.add(eq("b_id", ubi.getBoard().getB_id()));
-		}
-		
-		return (List<Board>) crit2.list();
 	}
 
 	

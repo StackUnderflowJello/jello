@@ -16,7 +16,6 @@ public interface User_BoardDao {
     //UPDATE
     public void updateUserRoleOnBoard(User_Board user_board);
     
-    
     //DELETE
     public void removeUserFromBoard(User_Board user_board);
 }

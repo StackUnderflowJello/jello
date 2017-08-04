@@ -35,19 +35,6 @@ public class HistoryDaoImpl implements HistoryDao {
         return (History) session.get(History.class, history.getHistory_id());
     }
 
-    @Override
-    public void updateHistory(History history) {
-
-        Session session = sessionFactory.getCurrentSession();
-        session.update(history);
-    }
-
-    @Override
-    public void removeHistory(History history) {
-        Session session = sessionFactory.getCurrentSession();
-        session.delete(history);
-    }
-
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<History> getHistoryByJello_Bite(Jello_Bite jello_bite) {
@@ -61,5 +48,18 @@ public class HistoryDaoImpl implements HistoryDao {
 		
 		return (List<History>) crit.list();
 	}
+	
+    @Override
+    public void updateHistory(History history) {
 
+        Session session = sessionFactory.getCurrentSession();
+        session.update(history);
+    }
+
+    @Override
+    public void removeHistory(History history) {
+        Session session = sessionFactory.getCurrentSession();
+        session.delete(history);
+    }
+    
 }

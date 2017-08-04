@@ -12,6 +12,7 @@ public interface BoardDao {
 	
 	//READ
 	public Board getBoard(Board board);
+	public List<Board> getAllBoardsByUser(Users use);
 	
 	//UPDATE
 	public void adminRenameBoard(Board board);
@@ -20,5 +21,4 @@ public interface BoardDao {
 	//DELETE
 	public void adminRemoveBoard(Board board);
 
-	public List<Board> getAllBoardsByUser(Users use);
 }

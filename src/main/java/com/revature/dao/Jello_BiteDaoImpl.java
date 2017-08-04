@@ -28,6 +28,18 @@ public class Jello_BiteDaoImpl implements Jello_BiteDao{
 		session.save(bite);
 	}
 
+	@SuppressWarnings("unchecked")
+    @Override
+    public List<Jello_Bite> getAllJello_BitesBySwimLane(Swim_Lane swimLane) {
+        Session session = sessionFactory.getCurrentSession();
+        
+       Criteria crit = session.createCriteria(Jello_Bite.class);
+		crit.createAlias("swim_lane", "sl");
+        crit.add(eq("sl.lane_id", swimLane.getLane_id()));
+        
+       return (List<Jello_Bite>) crit.list();
+    }
+
 	@Override
 	public void removeBite(Jello_Bite bite) {
 		Session session = sessionFactory.getCurrentSession();
@@ -40,16 +52,5 @@ public class Jello_BiteDaoImpl implements Jello_BiteDao{
 		Session session = sessionFactory.getCurrentSession();
 		session.update(bite);	
 	}
-
-	@SuppressWarnings("unchecked")
-    @Override
-    public List<Jello_Bite> getAllJello_BitesBySwimLane(Swim_Lane swimLane) {
-        Session session = sessionFactory.getCurrentSession();
-        
-       Criteria crit = session.createCriteria(Jello_Bite.class);
-		crit.createAlias("swim_lane", "sl");
-        crit.add(eq("sl.lane_id", swimLane.getLane_id()));
-        
-       return (List<Jello_Bite>) crit.list();
-    }
+    
 }

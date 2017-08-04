@@ -42,6 +42,28 @@ public class Swim_Lane_DaoImpl implements Swim_LaneDao {
 		return (Swim_Lane_Type) session.get(Swim_Lane_Type.class, swimmer.getSwim_lane_type());
 	}
 
+	@Override
+	public Swim_Lane getFirstSwimLaneByBoard(Board board) {
+		Session session = sessionFactory.getCurrentSession();
+		
+		Criteria crit = session.createCriteria(Swim_Lane.class);
+		crit.createAlias("board", "b");
+		crit.add(eq("b.b_id", board.getB_id()));
+		
+		return (Swim_Lane) crit.list().get(0);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Swim_Lane> getAllSwimLaneByBoard(Board board) {
+		Session session = sessionFactory.getCurrentSession();
+		
+		Criteria crit = session.createCriteria(Swim_Lane.class);
+		crit.createAlias("board", "b");
+		crit.add(eq("b.b_id", board.getB_id()));
+		return (List<Swim_Lane>) crit.list();
+	}
+
     @Override
     public void updateSwimLane(Swim_Lane swimLane) {
 
@@ -55,27 +77,5 @@ public class Swim_Lane_DaoImpl implements Swim_LaneDao {
         Session session = sessionFactory.getCurrentSession();
         session.delete(swimLane);
     }
-
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<Swim_Lane> getAllSwimLaneByBoard(Board board) {
-		Session session = sessionFactory.getCurrentSession();
-		
-		Criteria crit = session.createCriteria(Swim_Lane.class);
-		crit.createAlias("board", "b");
-		crit.add(eq("b.b_id", board.getB_id()));
-		return (List<Swim_Lane>) crit.list();
-	}
-
-	@Override
-	public Swim_Lane getFirstSwimLaneByBoard(Board board) {
-		Session session = sessionFactory.getCurrentSession();
-		
-		Criteria crit = session.createCriteria(Swim_Lane.class);
-		crit.createAlias("board", "b");
-		crit.add(eq("b.b_id", board.getB_id()));
-		
-		return (Swim_Lane) crit.list().get(0);
-	}
 
 }

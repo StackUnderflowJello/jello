@@ -27,23 +27,11 @@ public class TaskDaoImpl implements TaskDao{
         Session session = sessionFactory.getCurrentSession();
         session.save(task);
     }
-    
-    @Override
-    public void updateBiteTask(Task task) {
-        Session session = sessionFactory.getCurrentSession();
-        session.update(task);
-    }
 
     @Override
     public void getBiteTask(Task task) {
         Session session = sessionFactory.getCurrentSession();
         session.get(Task.class, task.getT_id());
-    }
-
-    @Override
-    public void deleteBiteTask(Task task) {
-        Session session = sessionFactory.getCurrentSession();
-        session.delete(task);
     }
 
 	@SuppressWarnings("unchecked")
@@ -57,5 +45,17 @@ public class TaskDaoImpl implements TaskDao{
 		
 		return (List<Task>) crit.list();
 	}
+    
+    @Override
+    public void updateBiteTask(Task task) {
+        Session session = sessionFactory.getCurrentSession();
+        session.update(task);
+    }
+
+    @Override
+    public void deleteBiteTask(Task task) {
+        Session session = sessionFactory.getCurrentSession();
+        session.delete(task);
+    }
 
 }
