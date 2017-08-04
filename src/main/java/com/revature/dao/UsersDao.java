@@ -17,7 +17,7 @@ public interface UsersDao {
 	
 	//UPDATE
 
-	public void updateUserRoles(Users use);
+	public void updateUser(Users use);
 	
 	//DELETE
 	public void deleteUser(Users use);

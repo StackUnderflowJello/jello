@@ -15,6 +15,7 @@ public interface BoardDao {
 	public Swim_Lane getFirstSwimLaneByBoard(Board board);
 	public List<Swim_Lane> getAllSwimLaneByBoard(Board board);
 	
+	
 	//UPDATE
 	public void adminRenameBoard(Board board);
 	public void updateBackGround(Board board);

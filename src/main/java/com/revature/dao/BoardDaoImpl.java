@@ -1,12 +1,14 @@
 package com.revature.dao;
 
 import static org.hibernate.criterion.Restrictions.ilike;
+import static org.hibernate.criterion.Restrictions.eq;
 
 import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
@@ -71,9 +73,11 @@ public class BoardDaoImpl implements BoardDao{
 		Session session = sessionFactory.getCurrentSession();
 		
 		Criteria crit = session.createCriteria(Swim_Lane.class);
-		crit.add(ilike("B_ID", board.getB_id()));
-		
+		crit.createAlias("board", "b");
+		crit.add(Restrictions.eq("b.b_id", board.getB_id()));
 		return (List<Swim_Lane>) crit.list();
 	}
+
+	
 
 }
