@@ -78,4 +78,6 @@ public class BoardDaoImpl implements BoardDao{
 		return (List<Swim_Lane>) crit.list();
 	}
 
+	
+
 }
