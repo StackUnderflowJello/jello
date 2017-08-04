@@ -12,6 +12,7 @@ public interface BoardDao {
 	
 	//READ
 	public Board getBoard(Board board);
+	
 	//UPDATE
 	public void adminRenameBoard(Board board);
 	public void updateBackGround(Board board);

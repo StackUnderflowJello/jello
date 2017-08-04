@@ -71,4 +71,6 @@ public class BoardDaoImpl implements BoardDao{
 		return (List<Board>) crit2.list();
 	}
 
+	
+
 }

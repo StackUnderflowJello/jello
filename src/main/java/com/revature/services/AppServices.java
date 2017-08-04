@@ -51,11 +51,6 @@ public class AppServices {
     @Autowired
     private HistoryDao historydao;
     
-//  private void createBoardForUser(){
-//      Users user = (Users) session.getAttribute("user");
-//      
-//      
-//  }
  
     /*
      * =====================User Services =============================
@@ -111,6 +106,11 @@ public class AppServices {
     
     public void adminRenameBoard(Board board){
         boarddao.adminRenameBoard(board);
+        /*if(user_boarddao.getUser_BoardByBoard(board).getRole().getR_id() == 1){ // What's the real value for admin
+            boarddao.adminRenameBoard(board);
+        }*/
+        
+        // What are we going to do if they aren't an admin???
     }
     public void updateBackGround(Board board){
         boarddao.updateBackGround(board);
@@ -118,6 +118,13 @@ public class AppServices {
     
     public void adminRemoveBoard(Board board){
         boarddao.adminRemoveBoard(board);
+       /* if(user_boarddao.getUser_BoardByBoard(board).getRole().getR_id() == 1){ // What's the real value for admin
+            boarddao.adminRemoveBoard(board);
+        }*/
+        
+        
+        // What are we going to do if they aren't an admin???
+        // Change admin role for board to another user first so we can safely delete the board
     }
     
     /*
@@ -132,6 +139,8 @@ public class AppServices {
  
   	public void addUserToBoard(User_Board userBoard){
   		 user_boarddao.addUserToBoard(userBoard);
+  		/* if(user_boarddao.getUser_BoardByBoard(board).getRole().getR_id() == 1){ // What's the real value for admin
+         boarddao.adminRemoveBoard(board); }*/
   	}
   	
   	
@@ -147,6 +156,8 @@ public class AppServices {
   	
   	public void removeUser_Board(User_Board userBoard){
   		user_boarddao.removeUserFromBoard(userBoard);
+  		/* if(user_boarddao.getUser_BoardByBoard(board).getRole().getR_id() == 1){ // What's the real value for admin
+        boarddao.adminRemoveBoard(board); }*/
   	}
     
     

@@ -239,13 +239,34 @@ public class AspectJello {
 	
 	@Before("execution(* com.revature.dao.UsersDaoImpl.deleteUser(..))")
 	public void hijackDeleteUser(JoinPoint jp){
-		
 		Users use = (Users) jp.getArgs()[0];
 		System.out.println("User Deleted: " + use.getU_id() + " " + use.getU_email());
 		logger.info("User Deleted: " + use.getU_id() + " " + use.getU_email());
 	
 	}
 	
+	/**
+	 * logging methods createUser(),
+	 * removeUser()
+	 * @param args
+	 */
+	
+	@Before("execution(* com.revature.dao.RegisterDaoImpl.createUser(..))")
+	public void hijackRegisterCreateUser(JoinPoint jp){
+		Users usr = (Users) jp.getArgs()[0];
+		System.out.println("Users registered" + usr.getU_email() + " " + usr.getU_password());
+		logger.info("Users registered" + usr.getU_email() + " " + usr.getU_password());
+		
+	}
+	
+	@Before("execution(* com.revature.dao.RegisterDaoImpl.removeUser(..))")
+	public void hijackRegisterRemoveUser(JoinPoint jp){
+		Users usr = (Users) jp.getArgs()[0];
+		System.out.println("User removed: " + usr.getU_email());
+		logger.info("User removed: " + usr.getU_email());
+		
+	}
+		
 	public static void main(String[] args) {
 		ApplicationContext ac = new ClassPathXmlApplicationContext("beans.xml");
 		
@@ -285,10 +306,6 @@ public class AspectJello {
 		System.out.println(userBoard);
 		System.out.println(history);
 		//app.updateUser_Board_Id(userBoardId);
-		
-		
-		
-		
 		
 	}
 		

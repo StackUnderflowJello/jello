@@ -5,9 +5,12 @@ import java.util.Comparator;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -21,6 +24,8 @@ public class History implements Serializable{
 	
 	@Id
 	@Column
+	@SequenceGenerator(name = "history_seq", sequenceName = "history_seq")
+	@GeneratedValue(strategy = GenerationType.AUTO, generator="history_seq")  
 	private int history_id;
 	@ManyToOne
 	@JoinColumn(name="bite_id")
