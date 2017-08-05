@@ -4,11 +4,12 @@
 
 
 angular
-  .module('demo')
-
+  .module('demo',['dndLists'])
+  
   	.controller('DemoController', function($scope) {
+  	$scope.allTitles = ['To do','In progress','Testing','Verify','Done'];
     $scope.model = [generateList(1), generateList(2), generateList(3), generateList(4), generateList(5)];
-
+    
     $scope.onDrop = function(srcList, srcIndex, targetList, targetIndex) {
       // Copy the item from source to target.
       targetList.splice(targetIndex, 0, srcList[srcIndex]);
@@ -19,7 +20,7 @@ angular
       // By returning true from dnd-drop we signalize we already inserted the item.
       return true;
     };
-
+    
     function generateList(id) {
       return ['A', 'B', 'C'].map(function(letter) {
         // angular-drag-and-drop-lists usually serializes the objects to drag, thus we
@@ -28,11 +29,13 @@ angular
         // on the item here.
         return {
           labelFunc: function(index) {
+        	  /*$scope.title = t;*/
             return "Item " + id + letter + " at index " + index;
           }
         };
       });
     }
+    
   });
 
 

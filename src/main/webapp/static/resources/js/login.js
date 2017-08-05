@@ -65,7 +65,7 @@ app.controller("loginController", function($scope) {
     lastname = $scope.lastname;
 
     console.log($scope.regUsername + " " + regPassword + " " + firstname + " " + lastname);
-   } 
+    } 
 
   $scope.hideModal = function() {
     $("#loginModal").css("display", "none");
@@ -82,7 +82,7 @@ app.controller("loginController", function($scope) {
     $("#showLogin").css("display", "none");
   }
 
-  $scope.showRegister = function() {
+$scope.showRegister = function() {
     $(".register-body").css("display", "block");
     $(".login-body").css("display", "none");
     $("#login-header").css("display", "none");
@@ -94,25 +94,25 @@ app.controller("loginController", function($scope) {
   }
 
 
-  function setUser(user){
+function setUser(user){
 
-	  var funcObject = {"user" : user};
+  var funcObject = {"user" : user};
   
-	  console.log("Storing User in localStorage: " + user);
+  console.log("Storing User in localStorage: " + user);
 
-	  // Put the object into storage
-	  localStorage.setItem('Session', JSON.stringify(funcObject));
-  }
+  // Put the object into storage
+  localStorage.setItem('Session', JSON.stringify(funcObject));
+}
 
-  function getUser() {
+function getUser() {
   
-	  var retrievedObject = localStorage.getItem("Session");
-	  if(retrievedObject != null) {
-		  var parsed = JSON.parse(retrievedObject);
-		  console.log(parsed["user"]);
+  var retrievedObject = localStorage.getItem("Session");
+  if(retrievedObject != null) {
+    var parsed = JSON.parse(retrievedObject);
+    console.log(parsed["user"]);
     
-		  return parsed["user"];
-	  }
+    return parsed["user"];
   }
+}
 
 });
