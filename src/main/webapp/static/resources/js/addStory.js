@@ -45,7 +45,6 @@ app.controller('addStoryCtrl', function($scope, $http) {
         
         //need to reset elements from form
         $scope.elements = [{value:''}];
-        
     }
 })
 
