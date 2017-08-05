@@ -96,8 +96,7 @@ public class AppServices {
     }
 
     public Users getUserByEmail(Users use){
-        UsersDao dao = new UsersDaoImpl();
-        return dao.getUserByEmail(use);
+        return usersdao.getUserByEmail(use);
     }
     /*
      * ======================== End User Services ==========================

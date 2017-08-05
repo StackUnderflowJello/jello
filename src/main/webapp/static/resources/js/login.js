@@ -9,25 +9,43 @@ app.controller("loginController", function($scope, $http) {
     }
   }
   
-  var username = "stackunderflow";
-  var password = "123";
+  var val_email = "";
+  var val_password = "";
   var regUsername = "";
   var regPassword = "";
   var firstname = "";
   var lastname = "";
   
-  $scope.username = '';
-  $scope.password = '';
+  $scope.username = 'eh';
+  $scope.password = 'yeah';
 
 
   $scope.login = function() {
-    console.log($scope.username);
-    if($scope.username === username && $scope.password === password) {
-      $('.login').css('display', 'none');
-      $('.modal-button').css('display', 'none');
-      $scope.hideModal();
-      setUser($scope.username);
-    }
+    
+    	var qeueUser = {
+    	    u_email : $scope.username,
+    	    u_password : $scope.password
+        }
+        
+    	var config = {
+        	headers: {
+        		'Content-Type' : 'application/json;'
+        	}
+        }
+        
+        $http.post('loginUser', qeueUser, config)
+        	.then(
+        		function(response) {
+        			console.log("Good");
+        			$('.login').css('display', 'none');
+        			$('.modal-button').css('display', 'none');
+        			$scope.hideModal();
+        			setUser($scope.username);
+        		},
+        		function(){
+        			console.log("Invalid Credentials!")
+        		}
+        )
   };
 
   $scope.register = function() {
