@@ -10,25 +10,25 @@ app.config(function($routeProvider){
 	
 	$routeProvider
 		.when("/", {
-			templateUrl: "static/fragments/scrumboard.html"
+			templateUrl: "fragments/scrumboard.html"
 		})
 		
 		.when("/scrumboard", {
-			templateUrl: "static/fragments/scrumboard.html"
+			templateUrl: "fragments/scrumboard.html"
 		})
 		
 		.when("/standup", {
-			templateUrl: "static/fragments/stand.html"
+			templateUrl: "fragments/stand.html"
 		
 		})
 		
 		.when("/burndown", {
-			templateUrl: "static/fragments/burndown.html"
+			templateUrl: "fragments/burndown.html"
 			
 		})
 		
 		.when("/members", {
-			templateUrl: "static/fragments/members.html"
+			templateUrl: "fragments/members.html"
 			
 		})
 		
