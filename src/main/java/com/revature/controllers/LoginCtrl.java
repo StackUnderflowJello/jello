@@ -31,7 +31,7 @@ public class LoginCtrl {
 		
 		if(revu.getU_email().equals(user.getU_email()) && revu.getU_password().equals(user.getU_password())){
 			System.out.println("CLEAR");
-			req.setAttribute("user", revu.getU_email());
+			req.getSession().setAttribute("user", revu);
 			return new ResponseEntity<Users>(HttpStatus.OK) ;
 		}else{
 			System.out.println("NOPE");
