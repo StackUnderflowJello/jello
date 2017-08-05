@@ -52,16 +52,19 @@ public class MoveStoryCtrl {
 		//get jello bite by story name
 		Jello_Bite curr_story = new Jello_Bite();
 		curr_story.setBite_name(moveHist.getStory_name());
+		
 		//getJelloBySwimlaneStory() => match the swimlane ids and get bite back
-		Jello_Bite story = new AppServices().getJelloBySwimlaneStory(curr_story);
-		History hist = new History();
-		hist.setJello_bite(story);
-		hist.setSwim_Lane_Type(prevLane);
-		hist.setSwim_Lane_Type_new(newLane);
-		hist.setAction_date(date);
+		
+//		Jello_Bite story = new AppServices().getJelloBySwimlaneStory(curr_story);
+//		History hist = new History();
+//		hist.setJello_bite(story);
+//		hist.setSwim_Lane_Type(prevLane);
+//		hist.setSwim_Lane_Type_new(newLane);
+//		hist.setAction_date(date);
 		
 		//add record to history table
-		new AppServices().addHistory(hist);
+		
+//		new AppServices().addHistory(hist);
 	}
 	
 }
