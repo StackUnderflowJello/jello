@@ -34,6 +34,7 @@ app.controller("loginController", function($scope) {
       $scope.hideModal();
     }
   }
+
   
   var username = "stackunderflow";
   var password = "123";
@@ -93,9 +94,6 @@ $scope.showRegister = function() {
   }
 }
 
-);
-
-
 function setUser(user){
 
   var funcObject = {"user" : user};
@@ -116,3 +114,5 @@ function getUser() {
     return parsed["user"];
   }
 }
+
+});
