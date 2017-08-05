@@ -12,7 +12,7 @@ public class LogoutCtrl {
 	@RequestMapping(value="/logoutUser", method=RequestMethod.POST)
 	public void loginUser(HttpServletRequest req) {
 		System.out.println("LOGGED OUT");
-		
+		req.getSession().invalidate();
 	}
 	
 	
