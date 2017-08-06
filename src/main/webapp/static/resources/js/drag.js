@@ -9,8 +9,10 @@ angular
   	
   		$scope.$watch(returnTemp, function (newValue) {
   			if(newValue != ""){
-	  			console.log('newValue: ' + newValue.story_name)
-				$scope.model[0].splice(0,0,{label: newValue.story_name});
+  				//if(document.getElementById('scrumboard')){
+		  			console.log('newValue: ' + newValue.story_name)
+					$scope.model[0].splice(0,0,{label: newValue.story_name});
+  				//}
   			}
 		});
   	
