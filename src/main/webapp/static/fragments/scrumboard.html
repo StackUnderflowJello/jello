@@ -8,6 +8,7 @@
             <li ng-repeat="item in list"
                 dnd-draggable="null" dnd-callback="onDrop(list, $index, targetList, targetIndex)" style="text-align: center;">
               {{item.labelFunc($index)}}
+              {{item.label}}
             </li>
           </ul>
         </div>

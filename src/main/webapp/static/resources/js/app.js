@@ -38,6 +38,11 @@ app.config(function($routeProvider){
 	
 });
 
+var temp = "";
+var returnTemp = function(){
+	return temp;
+}
+
 
 app.controller("btnCtrl", function($scope){
 
@@ -54,6 +59,3 @@ app.controller("btnCtrl", function($scope){
 	}
 	
 })
-
-
-
