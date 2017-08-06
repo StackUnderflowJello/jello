@@ -57,5 +57,14 @@ app.controller("btnCtrl", function($scope){
 		$scope.showBtn = false;
 		console.log("Hiding btns");
 	}
-	
-})
+
+//set active classes for clicked nav links
+var selector = '.nav li';
+
+$(selector).on('click', function(){
+    $(selector).removeClass('active');
+    $(this).addClass('active');
+});
+
+});
+

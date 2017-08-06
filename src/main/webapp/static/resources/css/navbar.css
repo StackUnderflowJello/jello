@@ -16,7 +16,7 @@
 	font-family: 'Indie Flower', cursive;
 }
 
-.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover{
-	background-color: #4ee666;
-	color: #F4CEF1;
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+    background-color: crimson;
+    color: #F4CEF1;
 }
