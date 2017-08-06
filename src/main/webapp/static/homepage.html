@@ -23,21 +23,24 @@
 </head>
 <body data-ng-app="myApp">
 	<h1 id="brand">Jell-o</h1>
+	
+	<div ng-controller="btnCtrl">
+	
 	<ul id="navBorder" class="nav nav-pills">
 		<li class="dropdown">
 		<li role="presentation" class="active"><a class="dropdown-toggle"
-			data-toggle="dropdown" href="#/!">View Boards <span class="caret"></span></a>
+			data-toggle="dropdown" href="#/!" ng-click="show()">View Boards <span class="caret"></span></a>
 			<ul class="dropdown-menu">
 				<li><a href="#">Submenu 1-1</a></li>
 				<li><a href="#">Submenu 1-2</a></li>
 				<li><a href="#">Submenu 1-3</a></li>
 			</ul></li>
-		<li role="presentation"><a href="#!standup">View Stand Up
+		<li role="presentation"><a href="#!standup" ng-click="show()">View Stand Up
 				Boards</a></li>
-		<li role="presentation"><a href="#!burndown">View Burn Downs</a></li>
+		<li role="presentation"><a href="#!burndown" ng-click="hide()">View Burn Downs</a></li>
 		<li class="dropdown">
 		<li role="presentation"><a class="dropdown-toggle"
-			data-toggle="dropdown" href="#!members">Members <span class="caret"></span></a>
+			data-toggle="dropdown" href="#!members" ng-click="hide()">Members <span class="caret"></span></a>
 			<ul class="dropdown-menu">
 				<li><a href="#">Add Member</a></li>
 				<li ng-controller="remUserCtrl"><a href="#"
@@ -59,7 +62,7 @@
  
 	<!-- AddStory Feature -->
 	<button type="button" class="btn btn-info btn-lg" data-toggle="modal"
-		data-target="#myModal">Add Story</button>
+		data-target="#myModal" ng-show="showBtn">Add Story</button>
 	<!-- Modal -->
 	<div id="myModal" class="modal fade" role="dialog"
 		ng-controller="addStoryCtrl">
@@ -99,7 +102,7 @@
 
 	<!-- AddBoard Feature -->
 	<button type="button" class="btn btn-info btn-lg" data-toggle="modal"
-		data-target="#myModal1" style="text-align: center;">Add Board</button>
+		data-target="#myModal1" style="text-align: center;" ng-show="showBtn">Add Board</button>
 
 	<!-- Modal -->
 	<div id="myModal1" class="modal fade" role="dialog"
@@ -125,6 +128,8 @@
 			</div>
 		</div>
 	</div>
+
+	 </div>
 
 	<div id="loginModal" class="login-modal">
 
