@@ -119,7 +119,7 @@ public class AspectJello {
 		logger.info("Jello Bite moved:" + jello_bite.getBite_name());
 	}
 	
-
+	
 	/**
 	 * logging the createSwimLane(),
 	 * updateSwimLane(),
@@ -191,7 +191,7 @@ public class AspectJello {
 		logger.info("User Board Created: " + user_board.getUB_id() + " " + user_board.getRole());
 	}
 	
-	@Before("execution(* com.revature.dao.User_BoardDaoImpl.updateUserRoleBoard(..))")
+	@Before("execution(* com.revature.dao.User_BoardDaoImpl.updateUserRoleOnBoard(..))")
 	public void hijackUpdateUserRoleBoard(JoinPoint jp){
 		User_Board user_board = (User_Board) jp.getArgs()[0];
 		System.out.println("User Board Name Changed: " + user_board.getUB_id() + " " + user_board.getRole());
@@ -229,7 +229,7 @@ public class AspectJello {
 	
 	}
 	
-	@Before("execution(* com.revature.dao.UsersDaoImpl.updateUserRoles(..))")
+	@Before("execution(* com.revature.dao.UsersDaoImpl.updateUser(..))")
 	public void hijackUpdateUserRoles(JoinPoint jp){
 		Users use = (Users) jp.getArgs()[0];
 		System.out.println("User role update: " + use.getU_id());
