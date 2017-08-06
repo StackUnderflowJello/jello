@@ -55,6 +55,7 @@ angular
       return true;
     };
     
+
     function generateList(id) {
       return ['A', 'B', 'C'].map(function(letter) {
         // angular-drag-and-drop-lists usually serializes the objects to drag, thus we

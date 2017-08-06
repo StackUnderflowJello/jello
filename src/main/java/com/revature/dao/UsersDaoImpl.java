@@ -30,7 +30,7 @@ public class UsersDaoImpl implements UsersDao{
 		
 		
 		Criteria crit = session.createCriteria(Users.class);
-		crit.add(ilike("U_EMAIL", use.getU_email()));
+		crit.add(ilike("u_email", use.getU_email()));
 		// Should be unique, so just return the first item in the list and cast it.
 		return (Users) crit.list().get(0);
 	}
