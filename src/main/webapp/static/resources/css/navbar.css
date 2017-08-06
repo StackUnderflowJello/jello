@@ -1,6 +1,22 @@
 @CHARSET "ISO-8859-1";
 
-.nav-pills{
+.nav>li>a{
 	
-	color: white;
+	color: #F4CEF1;
+	font-family: 'Indie Flower', cursive;
+	font-size: 25px;
+}
+
+#navBorder{
+	background-color: rgba(234, 83, 196, 0.63);
+}
+
+.btn-info{
+	
+	font-family: 'Indie Flower', cursive;
+}
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover{
+	background-color: #4ee666;
+	color: #F4CEF1;
 }

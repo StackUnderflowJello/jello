@@ -99,11 +99,8 @@ $scope.showRegister = function() {
     $("#register").css("display", "block");
     $("#login-trigger").css("display", "none");
     $("#showLogin").css("display", "block");
+
   }
-
-
-});
-
 
 function setUser(user){
 
@@ -125,3 +122,4 @@ function getUser() {
     return parsed["user"];
   }
 }
+});
