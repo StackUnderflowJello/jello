@@ -34,15 +34,26 @@ app.config(function($routeProvider){
 		
 		.otherwise({
 			redirectTo: "/"
-		});
-		
-				
-	
+		});			
 	
 });
 
-var dragApp = angular.module('ExampleApp', ['btford.dragon-drop']).
-controller('dragCtrl', function ($scope) {
-  $scope.things = ['one', 'two', 'three'];
-  $scope.otherThings = [];
-});
+
+app.controller("btnCtrl", function($scope){
+
+	$scope.showBtn = true;
+	
+	$scope.show = function(){
+		$scope.showBtn = true;
+		console.log("Showing btns");
+	}
+	
+	$scope.hide = function(){
+		$scope.showBtn = false;
+		console.log("Hiding btns");
+	}
+	
+})
+
+
+

@@ -81,6 +81,10 @@ public class AppServices {
     public Users getUserByEmail(Users use){
         return usersdao.getUserByEmail(use);
     }
+    
+    public List<Users> getAllUsers(){
+        return usersdao.getAllUsers();
+    }
     /*
      * ======================== End User Services ==========================
      */
