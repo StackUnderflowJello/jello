@@ -1,5 +1,7 @@
 package com.revature.controllers;
 
+import java.net.URL;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,7 @@ public class LoginCtrl {
 	
 	@RequestMapping(value="/loginUser", method=RequestMethod.POST)
 	public @ResponseBody ResponseEntity<Users> loginUser(@RequestBody Users user, HttpServletRequest req) {
+		
 		System.out.println("GET JSON: " + user);
 		System.out.println(user.getU_email());
 		

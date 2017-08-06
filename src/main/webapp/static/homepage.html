@@ -24,7 +24,7 @@
 <body data-ng-app="myApp">
 <h1 id="brand">Jell-o</h1>
 <ul class="nav nav-pills">
-  <li role="presentation" class="active"><a href="#/!">View Board</a></li>
+  <li role="presentation"><a href="#/!">View Board</a></li>
   <li role="presentation"><a href="#!standup">View Stand Up Board</a></li>
   <li role="presentation"><a href="#!burndown">View Burn Down</a></li>
   <li role="presentation"><a href="#!members">Add Members</a></li>
@@ -44,8 +44,9 @@
     <div id="space-for-buttons"></div>
 </section>   -->   
      
+
 <!-- AddStory Feature -->
-<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add Story</button>
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" data-ng-show="showBtn">Add Story</button>
 <!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog" ng-controller="addStoryCtrl">
   <div class="modal-dialog">
@@ -83,11 +84,12 @@
   </div>
 </div>
     
-    <!-- AddBoard Feature -->
-    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal1" style="text-align: center;">Add Board</button>
+<!-- AddBoard Feature -->
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal1" style="text-align: center;" data-ng-show="showBtn">Add Board</button>
 
 <!-- Modal -->
 <div id="myModal1" class="modal fade" role="dialog" ng-controller="addBoardCtrl">
+
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -108,6 +110,8 @@
     </div>
 	</div>
   </div>
+
+  
   
 <div id="loginModal" class="login-modal" >
 
