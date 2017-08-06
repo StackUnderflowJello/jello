@@ -41,8 +41,3 @@ app.config(function($routeProvider){
 	
 });
 
-var dragApp = angular.module('ExampleApp', ['btford.dragon-drop']).
-controller('dragCtrl', function ($scope) {
-  $scope.things = ['one', 'two', 'three'];
-  $scope.otherThings = [];
-});
