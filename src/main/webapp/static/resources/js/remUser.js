@@ -25,12 +25,10 @@ app.controller('remUserCtrl', function($scope, $http) {
      		function(response){
      	 		console.log("failure");
      		}
-     	);
-	
-	
-	}
-	
-	
+     	);	
+	}	
+});
+
 	
 	
 	/*
@@ -43,6 +41,3 @@ app.controller('remUserCtrl', function($scope, $http) {
 		$scope.remUser = false;
 		//document.getElementById('rmUserBtn').style.display = none;
 	}*/
-	
-	
-});
