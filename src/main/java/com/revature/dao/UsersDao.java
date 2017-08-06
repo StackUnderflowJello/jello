@@ -1,8 +1,5 @@
 package com.revature.dao;
 
-import java.util.List;
-
-import com.revature.pojo.User_Board;
 import com.revature.pojo.Users;
 
 public interface UsersDao {
@@ -10,13 +7,10 @@ public interface UsersDao {
 	//CREATE
 	public void newUser(Users use);
 	
-	
 	//READ
 	public Users getUserByEmail(Users use);
-	public List<User_Board> getAllBoardsByUser(Users use);
 	
 	//UPDATE
-
 	public void updateUser(Users use);
 	
 	//DELETE

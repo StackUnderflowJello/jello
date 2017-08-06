@@ -1,5 +1,8 @@
 package com.revature.dao;
 
+
+import static org.hibernate.criterion.Restrictions.eq;
+
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -9,9 +12,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
-import com.revature.pojo.Jello_Bite;
+import com.revature.pojo.Board;
 import com.revature.pojo.Swim_Lane;
-import static org.hibernate.criterion.Restrictions.ilike;
+import com.revature.pojo.Swim_Lane_Type;
+
 
 @Repository
 @Component
@@ -26,22 +30,39 @@ public class Swim_Lane_DaoImpl implements Swim_LaneDao {
         session.save(swimLane);
     }
 
-    @SuppressWarnings("unchecked")
-    @Override
-    public List<Jello_Bite> getAllJello_BitesBySwimLane(Swim_Lane swimLane) {
-        Session session = sessionFactory.getCurrentSession();
-        
-       Criteria crit = session.createCriteria(Jello_Bite.class);
-        crit.add(ilike("LANE_ID", swimLane.getLane_id()));
-        
-       return (List<Jello_Bite>) crit.list();
-    }
-
     @Override
     public Swim_Lane getSwimLane(Swim_Lane swimLane) {
         Session session = sessionFactory.getCurrentSession();
         return (Swim_Lane) session.get(Swim_Lane.class, swimLane.getLane_id());
     }
+
+	@Override
+	public Swim_Lane_Type getSwim_Lane_Type(Swim_Lane swimmer) {
+		Session session = sessionFactory.getCurrentSession();
+		return (Swim_Lane_Type) session.get(Swim_Lane_Type.class, swimmer.getSwim_lane_type());
+	}
+
+	@Override
+	public Swim_Lane getFirstSwimLaneByBoard(Board board) {
+		Session session = sessionFactory.getCurrentSession();
+		
+		Criteria crit = session.createCriteria(Swim_Lane.class);
+		crit.createAlias("board", "b");
+		crit.add(eq("b.b_id", board.getB_id()));
+		
+		return (Swim_Lane) crit.list().get(0);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Swim_Lane> getAllSwimLaneByBoard(Board board) {
+		Session session = sessionFactory.getCurrentSession();
+		
+		Criteria crit = session.createCriteria(Swim_Lane.class);
+		crit.createAlias("board", "b");
+		crit.add(eq("b.b_id", board.getB_id()));
+		return (List<Swim_Lane>) crit.list();
+	}
 
     @Override
     public void updateSwimLane(Swim_Lane swimLane) {

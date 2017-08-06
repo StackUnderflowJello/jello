@@ -1,21 +1,19 @@
 package com.revature.dao;
 
-import static org.hibernate.criterion.Restrictions.ilike;
-import static org.hibernate.criterion.Restrictions.eq;
 
 import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Restrictions;
+import static org.hibernate.criterion.Restrictions.eq;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import com.revature.pojo.Board;
-import com.revature.pojo.Swim_Lane;
-import com.revature.pojo.User_Board;
+import com.revature.pojo.User_Board_Id;
+import com.revature.pojo.Users;
 
 @Repository
 @Component
@@ -34,6 +32,22 @@ public class BoardDaoImpl implements BoardDao{
 	public Board getBoard(Board board) {
 		Session session = sessionFactory.getCurrentSession();
 		return (Board) session.get(Board.class, board.getB_id());
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Board> getAllBoardsByUser(Users use) {
+		Session session = sessionFactory.getCurrentSession();
+		
+		Criteria crit = session.createCriteria(User_Board_Id.class);
+		crit.createAlias("user", "u");
+		crit.add(eq("u.u_id", use.getU_id()));
+		Criteria crit2 = session.createCriteria(Board.class);
+		for(User_Board_Id ubi : (List<User_Board_Id>)crit.list()){
+			crit2.add(eq("b_id", ubi.getBoard().getB_id()));
+		}
+		
+		return (List<Board>) crit2.list();
 	}
 	
 	@Override
@@ -57,25 +71,6 @@ public class BoardDaoImpl implements BoardDao{
 		
 	}
 
-	@Override
-	public Swim_Lane getFirstSwimLaneByBoard(Board board) {
-		Session session = sessionFactory.getCurrentSession();
-		
-		Criteria crit = session.createCriteria(Swim_Lane.class);
-		crit.add(ilike("B_ID", board.getB_id()));
-		
-		return (Swim_Lane) crit.list().get(0);
-	}
-
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<Swim_Lane> getAllSwimLaneByBoard(Board board) {
-		Session session = sessionFactory.getCurrentSession();
-		
-		Criteria crit = session.createCriteria(Swim_Lane.class);
-		crit.createAlias("board", "b");
-		crit.add(Restrictions.eq("b.b_id", board.getB_id()));
-		return (List<Swim_Lane>) crit.list();
-	}
+	
 
 }

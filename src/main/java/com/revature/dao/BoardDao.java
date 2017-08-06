@@ -3,7 +3,7 @@ package com.revature.dao;
 import java.util.List;
 
 import com.revature.pojo.Board;
-import com.revature.pojo.Swim_Lane;
+import com.revature.pojo.Users;
 
 public interface BoardDao {
 
@@ -12,8 +12,7 @@ public interface BoardDao {
 	
 	//READ
 	public Board getBoard(Board board);
-	public Swim_Lane getFirstSwimLaneByBoard(Board board);
-	public List<Swim_Lane> getAllSwimLaneByBoard(Board board);
+	public List<Board> getAllBoardsByUser(Users use);
 	
 	//UPDATE
 	public void adminRenameBoard(Board board);
@@ -21,4 +20,5 @@ public interface BoardDao {
 	
 	//DELETE
 	public void adminRemoveBoard(Board board);
+
 }
