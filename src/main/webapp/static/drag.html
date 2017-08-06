@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Drag List Test</title>
+</head>
+<script src="http://code.jquery.com/jquery-3.2.1.min.js"
+	integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	crossorigin="anonymous"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+	crossorigin="anonymous"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="resources/js/drag.js"></script>
+<link rel="stylesheet" href="static/resources/css/drag.css">
+<body>
+<div ng-app="demo">
+  <div ng-controller="DemoController" class="row">
+    <div ng-repeat="list in model" class="col-lg-2">
+      <div class="panel panel-info">
+        <div class="panel-heading"><h3 class="panel-title" style="text-align: center;">List {{$index+1}}</h3></div>
+        <div class="panel-body">
+          <ul dnd-list dnd-drop="callback({targetList: list, targetIndex: index})">
+            <li ng-repeat="item in list"
+                dnd-draggable="null" dnd-callback="onDrop(list, $index, targetList, targetIndex)" style="text-align: center;">
+              {{item.labelFunc($index)}}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>	

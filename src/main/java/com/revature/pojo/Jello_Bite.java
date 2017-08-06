@@ -26,6 +26,8 @@ public class Jello_Bite implements Serializable {
 	private static final long serialVersionUID = -5738362805815909696L;
 	@Id
 	@Column
+	@SequenceGenerator(name = "jello_bite_seq", sequenceName = "jello_bite_seq")
+	@GeneratedValue(strategy = GenerationType.AUTO, generator="jello_bite_seq")  
 	private int bite_id;
 	@Column
 	private String bite_name;

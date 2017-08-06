@@ -24,30 +24,19 @@ public class RemoveStoryCtrl {
 	@RequestMapping(value = "/removeStory", method = RequestMethod.POST)
 	public void removeStory(HttpServletRequest req, @RequestBody String json){
 		//get Board from session
-		HttpSession session = req.getSession();
-		Board curr = (Board) session.getAttribute("board");
-		
-		//get json from the client and parse it into the JelloDTO
-		ObjectMapper mapper = new ObjectMapper();
-		JelloDTO jello_dto;
-		try {
-			jello_dto = mapper.readValue(json, JelloDTO.class);
-		} catch (JsonParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (JsonMappingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		//convert JelloDTO to Jello
-		JelloDTO dto = new JelloDTO();
-		Jello_Bite jello = new Jello_Bite();
-		jello.setBite_name(dto.getStory_name());
-		jello.setJello_point(dto.getPoints());
+
+//		HttpSession session = req.getSession();
+//		Board curr = (Board) session.getAttribute("board");
+//		
+//		//get json from the client and parse it into the JelloDTO
+//		ObjectMapper mapper = new ObjectMapper();
+//		//JelloDTO jello_dto = mapper.readValue(json, JelloDTO.class);
+//		
+//		//convert JelloDTO to Jello
+//		Jello_Bite jello = new Jello_Bite();
+//		jello.setBite_name(jello_dto.getStory_name());
+//		jello.setJello_point(jello_dto.getPoints());
+
 		
 		//delete jello from db
 		//new AppServices().removeBite(jello);

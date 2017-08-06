@@ -32,7 +32,7 @@ body{
   width: 200px;
   height: 500px;
   border: dashed 4px transparent;
-  float: right;
+  float: left;
 }
 
 #dropzone1{
@@ -42,7 +42,7 @@ body{
   width: 200px;
   height: 500px;
   border: dashed 4px transparent;
-  float: right;
+  float: left;
 }
 
 #dropzone2{
@@ -52,7 +52,27 @@ body{
   width: 200px;
   height: 500px;
   border: dashed 4px transparent;
-  float:right;
+  float: left;
+}
+
+#dropzone3 {
+  background-color: rgba(193, 66, 156, 0.77);
+  padding: 10px;
+  margin: 10px;
+  width: 200px;
+  height: 500px;
+  border: dashed 4px transparent;
+  float: left;
+}
+
+#dropzone4 {
+  background-color: rgba(193, 66, 156, 0.77);
+  padding: 10px;
+  margin: 10px;
+  width: 200px;
+  height: 500px;
+  border: dashed 4px transparent;
+  float: left;
 }
 
 .draggable {

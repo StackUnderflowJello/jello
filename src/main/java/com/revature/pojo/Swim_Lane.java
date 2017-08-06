@@ -23,8 +23,9 @@ public class Swim_Lane implements Serializable {
 
 	@Id
 	@Column
+	@SequenceGenerator(name = "lane_seq", sequenceName = "lane_seq")
+	@GeneratedValue(strategy = GenerationType.AUTO, generator="lane_seq")  
 	private int lane_id;
-	
 	@JoinColumn(name="b_id")
 	@ManyToOne
 	private Board board;
