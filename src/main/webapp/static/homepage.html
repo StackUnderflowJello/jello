@@ -2,165 +2,203 @@
 <html>
 <head>
 
-	<!-- JQuery -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-	<!-- Google Fonts -->
-	<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous" />
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-	<!-- CSS -->
-	<link rel="stylesheet" href="static/resources/css/navbar.css" />
-  	<link rel="stylesheet" href="static/resources/css/app.css" />
-  	<link rel="stylesheet" href="static/resources/css/drag.css" />
-  	<link rel="stylesheet" href="static/resources/css/style.css" />
-  	<link rel="stylesheet" href="static/resources/css/modalstyle.css" />
+<!-- JQuery -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Indie+Flower"
+	rel="stylesheet">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous" />
+<!-- Optional theme -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+	crossorigin="anonymous" />
+<!-- Latest compiled and minified JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+	crossorigin="anonymous"></script>
+<!-- CSS -->
+<link rel="stylesheet" href="static/resources/css/navbar.css" />
+<link rel="stylesheet" href="static/resources/css/app.css" />
+<link rel="stylesheet" href="static/resources/css/drag.css" />
+<link rel="stylesheet" href="static/resources/css/style.css" />
+<link rel="stylesheet" href="static/resources/css/modalstyle.css" />
 
 <title>Homepage</title>
 </head>
 <body data-ng-app="myApp">
-<h1 id="brand">Jell-o</h1>
-<ul id="navBorder" class="nav nav-pills">
-  <li class="dropdown">
-  <li role="presentation" class="active"><a class="dropdown-toggle" data-toggle="dropdown" href="#/!">View Boards
-    <span class="caret"></span></a>
-    <ul class="dropdown-menu">
-      <li><a href="#">Submenu 1-1</a></li>
-      <li><a href="#">Submenu 1-2</a></li>
-      <li><a href="#">Submenu 1-3</a></li> 
-    </ul>
-  </li>
-  <li role="presentation"><a href="#!standup">View Stand Up Boards</a></li>
-  <li role="presentation"><a href="#!burndown">View Burn Downs</a></li>
-  <li role="presentation"><a href="#!members">Members</a></li>
-  <li><form class="navbar-form navbar-right">
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Search Members">
-      </div>
-      <button type="submit" class="btn btn-info">Submit</button>
-    </form> 
-    </li>
-    <li role="presentation" ng-controller="logoutController"><a href="#!login" ng-click="logout()">Logout</a></li>
-	  
-</ul>
-<br>
+	<h1 id="brand">Jell-o</h1>
+	<ul id="navBorder" class="nav nav-pills">
+		<li class="dropdown">
+		<li role="presentation" class="active"><a class="dropdown-toggle"
+			data-toggle="dropdown" href="#/!">View Boards <span class="caret"></span></a>
+			<ul class="dropdown-menu">
+				<li><a href="#">Submenu 1-1</a></li>
+				<li><a href="#">Submenu 1-2</a></li>
+				<li><a href="#">Submenu 1-3</a></li>
+			</ul></li>
+		<li role="presentation"><a href="#!standup">View Stand Up
+				Boards</a></li>
+		<li role="presentation"><a href="#!burndown">View Burn Downs</a></li>
+		<li class="dropdown">
+		<li role="presentation"><a class="dropdown-toggle"
+			data-toggle="dropdown" href="#!members">Members <span class="caret"></span></a>
+			<ul class="dropdown-menu">
+				<li><a href="#">Add Member</a></li>
+				<li ng-controller="remUserCtrl"><a href="#"
+					ng-click="removeUser()" class="ng-show">Remove Member</a></li>
+				<li><a href="#">View Members</a></li>
+			</ul></li>
+		<li><form class="navbar-form navbar-right">
+				<div class="form-group">
+					<input type="text" class="form-control"
+						placeholder="Search Members">
+				</div>
+				<button type="submit" class="btn btn-info">Submit</button>
+			</form></li>
+		<li role="presentation" ng-controller="logoutController"><a
+			href="#!login" ng-click="logout()">Logout</a></li>
 
-<!-- AddStory Feature -->
-<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add Story</button>
-<!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog" ng-controller="addStoryCtrl">
-  <div class="modal-dialog">
+	</ul>
+	<br>
+	
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Add Story</h4>
-      </div>
-      <div class="modal-body">
-        <form ng-submit="submit()" method="POST">
-            <div class="form-group">
-              <label for="usr">Story Name:</label>
-              <input type="text" class="form-control" required ng-model="story_name">
-            </div>
-            <div class="form-group">
-              <label for="usr">Points:</label>
-              <input type="number" class="form-control" min="0" max="10" ng-model="points">
-            </div>
-            </br>
-               <div ng-repeat="element in elements">
-               <label>Task:</label>
-                <input type="text" class="form-control col-xs-2" ng-model="element.value"/>
-                   </br> </br> </br>
-                </div>
-            </br>
-           <input type="button" class="btn btn-primary" value="Add Task" ng-click="addTask()" />
-            </br> </br>
-              <input type="submit" id="submit" class="btn btn-primary btn-block" value="Submit" data-dismiss="modal"  />
-        </form>
-      </div>
-    </div>
 
-  </div>
-</div>
-    
-    <!-- AddBoard Feature -->
-    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal1" style="text-align: center;">Add Board</button>
+	<!-- AddStory Feature -->
+	<button type="button" class="btn btn-info btn-lg" data-toggle="modal"
+		data-target="#myModal">Add Story</button>
+	<!-- Modal -->
+	<div id="myModal" class="modal fade" role="dialog"
+		ng-controller="addStoryCtrl">
+		<div class="modal-dialog">
 
-<!-- Modal -->
-<div id="myModal1" class="modal fade" role="dialog" ng-controller="addBoardCtrl">
-  <div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Add Story</h4>
+				</div>
+				<div class="modal-body">
+					<form ng-submit="submit()" method="POST">
+						<div class="form-group">
+							<label for="usr">Story Name:</label> <input type="text"
+								class="form-control" required ng-model="story_name">
+						</div>
+						<div class="form-group">
+							<label for="usr">Points:</label> <input type="number"
+								class="form-control" min="0" max="10" ng-model="points">
+						</div>
+						</br>
+						<div ng-repeat="element in elements">
+							<label>Task:</label> <input type="text"
+								class="form-control col-xs-2" ng-model="element.value" /> </br> </br> </br>
+						</div>
+						</br> <input type="button" class="btn btn-primary" value="Add Task"
+							ng-click="addTask()" /> </br> </br> <input type="submit" id="submit"
+							class="btn btn-primary btn-block" value="Submit"
+							data-dismiss="modal" />
+					</form>
+				</div>
+			</div>
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Add Board</h4>
-      </div>
-      <div class="modal-body">
-        <form ng-submit="submit()" method="POST">
-            <div class="form-group">
-              <label for="usr">Board Name:</label>
-              <input type="text" class="form-control" required ng-model="board_name">
-            </div>
-              <input type="submit" id="submit" class="btn btn-primary btn-block" value="Submit" data-dismiss="modal"  />
-        </form>
-      </div>
-    </div>
+		</div>
 	</div>
-  </div>
-  
-<div id="loginModal" class="login-modal" >
 
-  <!-- Modal content -->
-  <div class="login-modal-content" ng-controller="loginController">
-    <div class="login-modal-header">
-    
-      <h2 id="login-header">Login!</h2>
-      <h2 id="register-header">Register!</h2>
-    </div>
-    <div class="login-modal-body">
-    	<div class="login-body" >
-    		<label>Username</label><br>
-	       <input type="text" name="username" ng-model="username" required="" /><br>
-	       <label>Password</label><br>
-	       <input ng-keyup="$event.keyCode == 13 ? login() : null" type="password" name="password" ng-model="password" required="" /><br>
-      	</div>
-      	<div class="register-body" id="register-body">
-      		<label>Choose a Username</label><br>
-      	  	<input type="text" name="reg-username" ng-model="regUsername" required="" /><br>
-      	  	<label>Pick a Password</label><br>
-	       	<input type="password" name="reg-password" ng-model="regPassword" required="" /><br>
-	       	<label>Please enter your first name</label><br>
-	       	<input type="text" name="firstname" ng-model="firstname" required="" /><br>
-	       	<label>Please enter your surname</label><br>
-	       	<input ng-keyup="$event.keyCode == 13 ? register() : null" type="text" name="lastname" ng-model="lastname" required="" /><br>
-      	</div>
-    </div>
-    <div class="login-modal-footer">
-       <button class="btn btn-primary" id="login-trigger" ng-click="login()">Login</button>
-       <button class="btn btn-primary" id="showLogin" ng-click="showLogin()">Back to Login</button>
-       <button class="btn btn-primary" id="showRegister" ng-click="showRegister()">Not Registered?</button>
-       <button class="btn btn-primary" id="register" ng-click="register()">Register</button>
-    </div>
-  </div>
- </div>
- 
- 	<!-- Angular View: this is called Routing -->
-		<div ng-view></div>
+	<!-- AddBoard Feature -->
+	<button type="button" class="btn btn-info btn-lg" data-toggle="modal"
+		data-target="#myModal1" style="text-align: center;">Add Board</button>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
-    <script src="static/resources/js/app.js"></script>
+	<!-- Modal -->
+	<div id="myModal1" class="modal fade" role="dialog"
+		ng-controller="addBoardCtrl">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Add Board</h4>
+				</div>
+				<div class="modal-body">
+					<form ng-submit="submit()" method="POST">
+						<div class="form-group">
+							<label for="usr">Board Name:</label> <input type="text"
+								class="form-control" required ng-model="board_name">
+						</div>
+						<input type="submit" id="submit" class="btn btn-primary btn-block"
+							value="Submit" data-dismiss="modal" />
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="loginModal" class="login-modal">
+
+		<!-- Modal content -->
+		<div class="login-modal-content" ng-controller="loginController">
+			<div class="login-modal-header">
+
+				<h2 id="login-header">Login!</h2>
+				<h2 id="register-header">Register!</h2>
+			</div>
+			<div class="login-modal-body">
+				<div class="login-body">
+					<label>Username</label><br> <input type="text" name="username"
+						ng-model="username" required="" /><br> <label>Password</label><br>
+					<input ng-keyup="$event.keyCode == 13 ? login() : null"
+						type="password" name="password" ng-model="password" required="" /><br>
+				</div>
+				<div class="register-body" id="register-body">
+					<label>Choose a Username</label><br> <input type="text"
+						name="reg-username" ng-model="regUsername" required="" /><br>
+					<label>Pick a Password</label><br> <input type="password"
+						name="reg-password" ng-model="regPassword" required="" /><br>
+					<label>Please enter your first name</label><br> <input
+						type="text" name="firstname" ng-model="firstname" required="" /><br>
+					<label>Please enter your surname</label><br> <input
+						ng-keyup="$event.keyCode == 13 ? register() : null" type="text"
+						name="lastname" ng-model="lastname" required="" /><br>
+				</div>
+			</div>
+			<div class="login-modal-footer">
+				<button class="btn btn-primary" id="login-trigger"
+					ng-click="login()">Login</button>
+				<button class="btn btn-primary" id="showLogin"
+					ng-click="showLogin()">Back to Login</button>
+				<button class="btn btn-primary" id="showRegister"
+					ng-click="showRegister()">Not Registered?</button>
+				<button class="btn btn-primary" id="register" ng-click="register()">Register</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- Angular View: this is called Routing -->
+	<div ng-view></div>
+
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+	<script src="static/resources/js/app.js"></script>
 	<script src="static/resources/js/addStory.js"></script>
-	<script src="static/resources/js/canvasjs.min.js" type="text/javascript"></script>
+	<script src="static/resources/js/canvasjs.min.js"
+		type="text/javascript"></script>
 	<script src="static/resources/js/service.js"></script>
+	<script src="static/resources/js/getUser.js"></script>
 	<script src="static/resources/js/controller.js"></script>
 	<script src="static/resources/js/drag.js"></script>
 	<script src="static/resources/js/login.js" type="text/javascript"></script>
 	<script src="static/resources/js/logout-controller.js"></script>
+	<script src="static/resources/js/addUser.js"></script>
+	<script src="static/resources/js/addUserService.js"></script>
+	<script src="static/resources/js/remUser.js"></script>
+	<script src="static/resources/js/remUserService.js"></script>
 </body>
 </html>
