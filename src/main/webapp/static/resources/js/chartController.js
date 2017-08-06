@@ -1,6 +1,7 @@
 
 app.controller('ChartController', function($scope, chartService){
 
+   $scope.showLoader = true;
    $scope.getChart = chartService.getChart(function(response){var chart = response.data;
    chart = angular.fromJson(chart);
    var currPoints = [];
@@ -75,6 +76,7 @@ app.controller('ChartController', function($scope, chartService){
          }
       ]
    });
+   $scope.showLoader = false;
    $scope.chart.render();
    $scope.currDate = (currDate.getMonth()+1)+"/"+currDate.getDate()+"/"+currDate.getFullYear();
    $scope.avgPoints = (endPoints/(Math.floor((finalDate.getTime()-currDate.getTime())/(1000*60*60*24)))).toFixed(2);
