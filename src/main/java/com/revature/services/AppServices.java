@@ -14,13 +14,11 @@ import com.revature.dao.Swim_LaneDao;
 import com.revature.dao.TaskDao;
 import com.revature.dao.User_BoardDao;
 import com.revature.dao.UsersDao;
-import com.revature.dao.UsersDaoImpl;
 import com.revature.pojo.Board;
 import com.revature.pojo.History;
 import com.revature.pojo.Jello_Bite;
 import com.revature.pojo.Roles;
 import com.revature.pojo.Swim_Lane;
-import com.revature.pojo.Swim_Lane_Type;
 import com.revature.pojo.Task;
 import com.revature.pojo.User_Board;
 import com.revature.pojo.Users;
@@ -81,8 +79,11 @@ public class AppServices {
     }
 
     public Users getUserByEmail(Users use){
-        UsersDao dao = new UsersDaoImpl();
-        return dao.getUserByEmail(use);
+        return usersdao.getUserByEmail(use);
+    }
+    
+    public List<Users> getAllUsers(){
+        return usersdao.getAllUsers();
     }
     /*
      * ======================== End User Services ==========================

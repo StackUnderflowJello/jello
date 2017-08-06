@@ -4,6 +4,10 @@ import java.io.Serializable;
 
 public class HistoryDTO implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7424104745691852242L;
 	private String date;
 	private int points;
 	
