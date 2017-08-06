@@ -26,8 +26,6 @@
 
 <mvc:resources location="/static/" mapping="/static/**"></mvc:resources>
 
-
-
 <!-- 1st supply you DataSource: basic JDBC information -->
 <bean id="myDataSource" class="org.apache.commons.dbcp.BasicDataSource">
 
@@ -43,6 +41,7 @@
 
 <!-- Inject the DataSource bean -->
 	<property name="dataSource" ref="myDataSource"></property>
+	
 <!-- Now supply the rest of the Hibernate properties -->
 	<property name="hibernateProperties">
 			<props>
