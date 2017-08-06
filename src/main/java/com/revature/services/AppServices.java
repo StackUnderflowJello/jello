@@ -1,5 +1,6 @@
 package com.revature.services;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -21,6 +22,7 @@ import com.revature.pojo.Roles;
 import com.revature.pojo.Swim_Lane;
 import com.revature.pojo.Task;
 import com.revature.pojo.User_Board;
+import com.revature.pojo.User_Board_Id;
 import com.revature.pojo.Users;
 
 
@@ -85,6 +87,45 @@ public class AppServices {
     public List<Users> getAllUsers(){
         return usersdao.getAllUsers();
     }
+    
+    public void removeUserFromBoards(Users user) {
+    	List<User_Board> toDelete = usersdao.getAllBoardsByUser(user);
+    	System.out.println(toDelete);
+    	for(int i = 0; i < toDelete.size(); i++) {
+    		// Unable to convert Object returned from query into User_Board
+    		// Cycling through basic object and retrieving the IDs. 
+    		Iterator itr = toDelete.iterator();
+    		while(itr.hasNext()){
+    			// Creating User_Board_Id which will take in the Users and Board 
+    			User_Board_Id board_id = new User_Board_Id();
+    			Board protoboard = new Board();
+    			Users protouser = new Users();
+    			// Creating User_Board to take in the User_Board_Id
+    			User_Board delete = new User_Board();
+    			
+    			Object[] obj = (Object[]) itr.next();
+    		   
+    		    Integer u_id = Integer.parseInt(String.valueOf(obj[0]));  
+    		    Integer b_id = Integer.parseInt(String.valueOf(obj[1]));
+    		    System.out.println("User ID: " + u_id);
+    		    System.out.println("Board ID: " + b_id);
+    		    // Assigning retrieved IDs to Users and Board
+    		    protoboard.setB_id(b_id);
+    		    protouser.setU_id(u_id);
+    		    
+    		    board_id.setBoard(protoboard);
+    		    board_id.setUser(protouser);
+    		    
+    		    User_Board_Id ub_id = new User_Board_Id(protoboard, protouser);
+    		    // Assigning our User_Board the User_Board_Id
+    		    delete.setUB_id(ub_id);
+    		    // Deletion!
+    		    user_boarddao.removeUserFromBoard(delete);
+    		    
+    		}
+    	}
+    }
+    
     /*
      * ======================== End User Services ==========================
      */
@@ -126,6 +167,7 @@ public class AppServices {
         
         // What are we going to do if they aren't an admin???
         // Change admin role for board to another user first so we can safely delete the board
+      
     }
     
     /*

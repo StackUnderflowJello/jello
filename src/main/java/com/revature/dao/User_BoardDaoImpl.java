@@ -54,6 +54,6 @@ public class User_BoardDaoImpl implements User_BoardDao{
 	@Override
 	public void removeUserFromBoard(User_Board user_board) {
 		Session session = sessionFactory.getCurrentSession();
-		session.delete(user_board);		
+		session.delete(user_board);
 	}
 }

@@ -16,8 +16,8 @@ app.controller("loginController", function($scope, $http) {
   var firstname = "";
   var lastname = "";
   
-  $scope.username = 'eh';
-  $scope.password = 'yeah';
+  $scope.username = '';
+  $scope.password = '';
 
 
   $scope.login = function() {
@@ -65,6 +65,8 @@ app.controller("loginController", function($scope, $http) {
     	.then(
     		function(response) {
     			console.log("Posting" + response);
+    			alert("Successfully Registered! Please Log In.")
+    			$scope.showLogin();
     		},
     		function(response){
     			console.log("FAILURE")
@@ -74,6 +76,7 @@ app.controller("loginController", function($scope, $http) {
 
     console.log($scope.regEmail + " " + regPassword + " " + firstname + " " + lastname);
     }
+
 
   $scope.hideModal = function() {
     $("#loginModal").css("display", "none");
