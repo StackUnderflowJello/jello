@@ -12,10 +12,10 @@
 							</div>
 							<div class="panel-body">
 								<ul dnd-list
-									dnd-drop="callback({targetList: list, targetIndex: index})">
+									dnd-drop="callback({targetList: list, targetIndex: index})" id="scrumboard">
 									<li ng-repeat="item in list" dnd-draggable="null"
 										dnd-callback="onDrop(list, $index, targetList, targetIndex)"
-										style="text-align: center;">{{item.labelFunc($index)}}</li>
+										style="text-align: center;">{{item.labelFunc($index)}}{{item.label}}</li>
 								</ul>
 							</div>
 						</div>
