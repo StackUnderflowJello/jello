@@ -18,10 +18,12 @@
   	<link rel="stylesheet" href="static/resources/css/style.css" />
   	<link rel="stylesheet" href="static/resources/css/modalstyle.css" />
   	<link rel="stylesheet" href="static/resources/css/drag.css" />
+  	<link rel="stylesheet" href="static/resources/css/simpleDND.css" />
 
 <title>Homepage</title>
 </head>
 <body data-ng-app="myApp">
+
 <h1 id="brand">Jell-o</h1>
 <ul class="nav nav-pills">
   <li role="presentation" class="active"><a href="#/!">View Board</a></li>
@@ -76,7 +78,7 @@
             </br>
            <input type="button" class="btn btn-primary" value="Add Task" ng-click="addTask()" />
             </br> </br>
-              <input type="submit" id="submit" class="btn btn-primary btn-block" value="Submit" />
+              <input type="submit" id="submit" class="btn btn-primary btn-block" value="Submit" ng-click="addJello()" />
         </form>
       </div>
     </div>
@@ -161,5 +163,6 @@
 	<script src="static/resources/js/logout-controller.js"></script>
 	<script src="static/resources/js/chartapp.js"></script>
 	<script src="static/resources/js/drag.js"></script>
+	
 </body>
 </html>

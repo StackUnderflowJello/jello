@@ -2,8 +2,11 @@ angular.module('myApp');
 
 app.controller('addStoryCtrl', function($scope, $http) {
 
+	
 	$scope.elements = [{value:''}];
-    
+	
+	
+	
 //    var story = {
 //        "story_name": this.story_name, 
 //        "points": $scope.points,
@@ -12,6 +15,13 @@ app.controller('addStoryCtrl', function($scope, $http) {
     
     $scope.addTask = function(){
         $scope.elements.push({value:''});
+    }
+    
+    //adding jello to lane
+    $scope.addJello = function(){
+    	console.log('Adding jello');
+    	
+    	//console.log('This is from addJello() - ' + story);
     }
     
     $scope.submit = function(){
@@ -26,6 +36,7 @@ app.controller('addStoryCtrl', function($scope, $http) {
         story["story_name"] = $scope.story_name;
         story["points"] = $scope.points;
         console.log(angular.toJson(story));
+        temp = story;
         
         var config = {
         		headers: {
