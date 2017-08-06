@@ -1,5 +1,6 @@
+
 <div ng-app="demo">
-  <div ng-controller="DemoController" class="row">
+  <div ng-controller="standupCtrl" class="row">
     <div ng-repeat="list in model" id="dropzone" class="col-lg-2">
       <div class="panel panel-info">
         <div class="panel-heading"><h3 class="panel-title" style="text-align: center;">{{allTitles[$index]}}</h3></div>
@@ -8,7 +9,6 @@
             <li ng-repeat="item in list"
                 dnd-draggable="null" dnd-callback="onDrop(list, $index, targetList, targetIndex)" style="text-align: center;">
               {{item.labelFunc($index)}}
-              {{item.label}}
             </li>
           </ul>
         </div>
@@ -16,3 +16,6 @@
     </div>
   </div>
 </div>
+      
+      
+     

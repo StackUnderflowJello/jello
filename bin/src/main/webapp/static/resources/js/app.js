@@ -37,11 +37,17 @@ app.config(function($routeProvider){
 		});			
 	
 });
-
+<<<<<<< HEAD
 var temp = "";
 var returnTemp = function(){
 	return temp;
 }
+var dragApp = angular.module('ExampleApp', ['btford.dragon-drop']).
+controller('dragCtrl', function ($scope) {
+  $scope.things = ['one', 'two', 'three'];
+  $scope.otherThings = [];
+});
+=======
 
 
 app.controller("btnCtrl", function($scope){
@@ -59,3 +65,7 @@ app.controller("btnCtrl", function($scope){
 	}
 	
 })
+
+
+
+>>>>>>> 8cf804f8fe7b19503af70e5996c6b78274fc9937
