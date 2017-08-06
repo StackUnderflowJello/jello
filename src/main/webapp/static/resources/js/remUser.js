@@ -1,5 +1,6 @@
 app.controller('remUserCtrl', function($scope, $http) {
 	//Remove User from board
+	$scope.rem = true;
 	
 	var user = {
 			"email": "tom"
