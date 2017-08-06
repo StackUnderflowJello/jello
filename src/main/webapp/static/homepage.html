@@ -72,7 +72,7 @@
 					<h4 class="modal-title">Add Story</h4>
 				</div>
 				<div class="modal-body">
-					<form ng-submit="submit()" method="POST">
+					<form>
 						<div class="form-group">
 							<label for="usr">Story Name:</label> <input type="text"
 								class="form-control" required ng-model="story_name">
@@ -87,7 +87,7 @@
 								class="form-control col-xs-2" ng-model="element.value" /> </br> </br> </br>
 						</div>
 						</br> <input type="button" class="btn btn-primary" value="Add Task"
-							ng-click="addTask()" /> </br> </br> <input type="submit" id="submit"
+							ng-click="addTask()" /> </br> </br> <input ng-click="submit()" type="submit" id="submit"
 							class="btn btn-primary btn-block" value="Submit"
 							data-dismiss="modal" />
 					</form>
@@ -113,13 +113,13 @@
 					<h4 class="modal-title">Add Board</h4>
 				</div>
 				<div class="modal-body">
-					<form ng-submit="submit()" method="POST">
+					<form>
 						<div class="form-group">
 							<label for="usr">Board Name:</label> <input type="text"
 								class="form-control" required ng-model="board_name">
 						</div>
 						<input type="submit" id="submit" class="btn btn-primary btn-block"
-							value="Submit" data-dismiss="modal" />
+							value="Submit" data-dismiss="modal" ng-click="submit()" />
 					</form>
 				</div>
 			</div>
