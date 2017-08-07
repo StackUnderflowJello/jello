@@ -31,17 +31,11 @@
 	<div ng-controller="btnCtrl">
 	
 	<ul id="navBorder" class="nav nav-pills">
-		<li class="dropdown">
-		<li role="presentation"><a class="dropdown-toggle"
-			data-toggle="dropdown" href="#/!" ng-click="show()">View Boards <span class="caret"></span></a>
+		<li role="presentation"><a href="#/!" ng-click="show()">View Boards</a>
 			<ul class="dropdown-menu">
-				<li><a href="#">Submenu 1-1</a></li>
-				<li><a href="#">Submenu 1-2</a></li>
-				<li><a href="#">Submenu 1-3</a></li>
-			</ul></li>
+			</ul>
 		<li role="presentation"><a href="#!standup" ng-click="show()">View Stand Up
 				Boards</a></li>
-		<li role="presentation"><a href="#!deregister" ng-click="hide()">Delete Account</a></li>
 		<li role="presentation"><a href="#!burndown" ng-click="hide()">View Burn Downs</a></li>
 		<li class="dropdown">
 		<li role="presentation"><a class="dropdown-toggle"
@@ -53,14 +47,10 @@
 				<li><a href="#">View Members</a></li>
 			</ul></li>
 		<li><form class="navbar-form navbar-right">
-				<div class="form-group">
-					<input type="text" class="form-control"
-						placeholder="Search Members">
-				</div>
-				<button type="submit" class="btn btn-info">Submit</button>
 			</form></li>
 		<li role="presentation" ng-controller="logoutController"><a
 			href="#!login" ng-click="logout()">Logout</a></li>
+		<li role="presentation"><a href="#!deregister" ng-click="hide()">Delete Account</a></li>
 	</ul>
 	<br>
 	
