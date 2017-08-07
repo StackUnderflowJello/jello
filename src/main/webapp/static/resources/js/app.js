@@ -32,6 +32,10 @@ app.config(function($routeProvider){
 			
 		})
 		
+		.when("/deregister", {
+			templateUrl: "static/fragments/deregister.html"
+		})
+		
 		.otherwise({
 			redirectTo: "/"
 		});			

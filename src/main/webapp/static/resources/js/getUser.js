@@ -8,8 +8,8 @@ app.controller('getUserCtrl', function($scope, $http) {
 	
 	$http.get('getAllUsers')
 	
-    .then(function(info) {
-      $scope.email = info.data.email; 
+    .then(function(response) {
+      $scope.users = response.data; 
 	
     })
 

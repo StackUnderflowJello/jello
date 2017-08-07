@@ -1,12 +1,12 @@
 package com.revature.dao;
 
-import static org.hibernate.criterion.Restrictions.ilike;
+import static org.hibernate.criterion.Restrictions.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.Query;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,10 +61,14 @@ public class UsersDaoImpl implements UsersDao{
 	public List<User_Board> getAllBoardsByUser(Users use) {
 		Session session = sessionFactory.getCurrentSession();
 		
-		Criteria crit = session.createCriteria(User_Board.class);
-		crit.add(ilike("USER_BOARD", use.getU_id()));
+		String sql = "SELECT * FROM User_Board WHERE"
+				+ " u_id = ?";
+		SQLQuery query = session.createSQLQuery(sql);
+		query.setInteger(0, use.getU_id());
 		
-		return (List<User_Board>) crit.list();
+		System.out.println((List<User_Board>) query.list());
+		
+		return (List<User_Board>) query.list();
 	}
 
 	@SuppressWarnings("unchecked")

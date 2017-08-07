@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.dto.BoardyDTO;
@@ -28,22 +27,37 @@ import com.revature.services.AppServices;
 public class GetAllJelloBitesByBoardCtrl {
 
 	@Autowired
-	private AppServices appServices;
+	AppServices appServices;
 	
 	@RequestMapping(value="/getJelloBites", method=RequestMethod.GET)
 	public @ResponseBody String getJelloBitesByBoard(HttpServletRequest req) throws JsonParseException, JsonMappingException, IOException{
-		HttpSession httpSession = req.getSession();
 		
-		Board brd = (Board) httpSession.getAttribute("board");
+		Board brd = new Board();
+		brd.setB_id(1);
 		
 		List<Swim_Lane> slList = appServices.getAllSwimLaneByBoard(brd);
 		List<List<Jello_Bite>> jbList = new ArrayList<List<Jello_Bite>>();
 		for(Swim_Lane swim : slList){
+			System.out.println(swim);
 			jbList.add(appServices.getAllJello_BitesBySwimLane(swim));
 		}
-		ObjectMapper mapper = new ObjectMapper();
-		String returnedJson = mapper.writeValueAsString(jbList);
-		return returnedJson;
+		
+		System.out.println("TESTING: " + jbList);
+		
+		return "test";
+		
+//		HttpSession httpSession = req.getSession();
+//		
+//		Board brd = (Board) httpSession.getAttribute("board");
+//		
+//		List<Swim_Lane> slList = appServices.getAllSwimLaneByBoard(brd);
+//		List<List<Jello_Bite>> jbList = new ArrayList<List<Jello_Bite>>();
+//		for(Swim_Lane swim : slList){
+//			jbList.add(appServices.getAllJello_BitesBySwimLane(swim));
+//		}
+//		ObjectMapper mapper = new ObjectMapper();
+//		String returnedJson = mapper.writeValueAsString(jbList);
+//		return returnedJson;
 	}	
 	
 	@RequestMapping(value="/getJelloBites", method=RequestMethod.POST)
@@ -61,4 +75,6 @@ public class GetAllJelloBitesByBoardCtrl {
 		String returnedJson = mapper.writeValueAsString(jbList);
 		return returnedJson;
 	}	
+	
 }
+

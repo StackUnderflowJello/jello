@@ -9,6 +9,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
  
 @Entity
 @Table(name="Users")
@@ -21,8 +24,8 @@ public class Users implements Serializable{
 	
 	@Id
 	@Column
-	@SequenceGenerator(name = "users_seq", sequenceName = "users_seq")
-	@GeneratedValue(strategy = GenerationType.AUTO, generator="users_seq")  
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="USERS_SEQ") 
+	@SequenceGenerator(name = "USERS_SEQ", sequenceName = "USERS_SEQ")
 	private int u_id;
 	@Column
 	private String u_email;

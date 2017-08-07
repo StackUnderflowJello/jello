@@ -6,10 +6,12 @@ import java.io.Serializable;
 import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Embeddable
 //This class is to set the Composite for User_Board
 //This is to create the Composite Key 
+@Table(name="ub_id")
 public class User_Board_Id implements Serializable {
 
 	/**

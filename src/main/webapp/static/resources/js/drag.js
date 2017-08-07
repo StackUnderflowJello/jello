@@ -9,8 +9,10 @@ angular
   	
   		$scope.$watch(returnTemp, function (newValue) {
   			if(newValue != ""){
-	  			console.log('newValue: ' + newValue.story_name)
-				$scope.model[0].splice(0,0,{label: newValue.story_name});
+  				if(document.getElementById('scrumboard') != null){
+		  			console.log('Adding to board lane: ' + newValue.story_name);
+					$scope.model[0].splice(0,0,{label: newValue.story_name});
+  				}
   			}
 		});
   	
@@ -75,6 +77,15 @@ angular
 .controller('standupCtrl', function($scope) {
   	$scope.allTitles = ['What was done','What needs to be done','Blockers'];
     $scope.model = [generateList(1), generateList(2), generateList(3)];
+    
+		$scope.$watch(returnTemp, function (newValue) {
+  			if(newValue != ""){
+  				if(document.getElementById('standup') != null){
+  					console.log('Adding to standup lane: ' + newValue.story_name);
+					$scope.model[0].splice(0,0,{standLabel: newValue.story_name});
+  				}
+  			}
+		});
     
     $scope.onDrop = function(srcList, srcIndex, targetList, targetIndex) {
       // Copy the item from source to target.

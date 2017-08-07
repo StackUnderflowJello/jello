@@ -1,8 +1,7 @@
-
 <div class="container">
 	<div class="row">
-		<div class="col-md-1"></div>
-		<div class="col-md-10">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
 			<div ng-app="demo">
 				<div ng-controller="DemoController" class="row">
 					<div ng-repeat="list in model" id="dropzone" class="col-lg-2">
@@ -12,10 +11,10 @@
 							</div>
 							<div class="panel-body">
 								<ul dnd-list
-									dnd-drop="callback({targetList: list, targetIndex: index})">
+									dnd-drop="callback({targetList: list, targetIndex: index})" id="scrumboard">
 									<li ng-repeat="item in list" dnd-draggable="null"
 										dnd-callback="onDrop(list, $index, targetList, targetIndex)"
-										style="text-align: center;">{{item.labelFunc($index)}}</li>
+										style="text-align: center;">{{item.labelFunc($index)}}{{item.label}}</li>
 								</ul>
 							</div>
 						</div>
@@ -23,7 +22,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-md-1"></div>
+		<div class="col-md-2"></div>
 	</div>
 </div>
 

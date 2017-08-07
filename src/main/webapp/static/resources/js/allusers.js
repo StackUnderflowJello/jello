@@ -1,9 +1,12 @@
-ngular.module('myApp');
+angular.module('myApp')
+
+.controller('alluserscontroller', function($scope, $http) {
 
 $scope.GetAllUsers = function() {
 
     $http.get('getAllUsers')
-      .then(function(jaundice) {
-        console.log(jaundice);
+      .then(function(users) {
+        console.log(users);
       });
   };
+});
