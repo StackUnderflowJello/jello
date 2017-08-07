@@ -28,7 +28,7 @@ public class GetAllUsersCtrl {
 		
 		String parsed = mapper.writeValueAsString(users);
 		
-		System.out.println(parsed);
+		System.out.println("JSON Objects: " +  parsed);
 		
 		return parsed;
 	}

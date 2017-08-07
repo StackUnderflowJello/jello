@@ -5,13 +5,14 @@
 angular
   .module('demo',['dndLists'])
   
-  	.controller('DemoController', function($scope) {
+  	.controller('DemoController', function($scope, $http) {
   	
   		$scope.$watch(returnTemp, function (newValue) {
   			if(newValue != ""){
   				if(document.getElementById('scrumboard') != null){
 		  			console.log('Adding to board lane: ' + newValue.story_name);
 					$scope.model[0].splice(0,0,{label: newValue.story_name});
+					getJelloBites();
   				}
   			}
 		});
@@ -54,6 +55,13 @@ angular
             };
           });
         }
+    
+    function getJelloBites(){
+    	
+    	$http.get('getJelloBites').then(function(response){
+    		console.log('getJelloBites' + response.data);
+    	});
+    };
     
     function generateList(id) {
       return ['A', 'B', 'C'].map(function(letter) {

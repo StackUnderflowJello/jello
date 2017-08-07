@@ -1,13 +1,25 @@
+<!-- members.html -->
+
 <div ng-controller="getUserCtrl">
   <table border="1">
     <tr>
         <th>Email:</th>
     </tr>
     <tr>
-      <td ng-repeat="email in users">{{users}}</td>
+      <td ng-repeat="user in users">{{user.u_email}} </td>
     </tr>
   </table>
 </div>
 
 
-<!-- Still in progress -->
+<!--Still in progress --> 
+
+<!-- <div ng-controller="MyCtrl">
+    <table>
+        <tr>
+            <th ng-repeat="(key, val) in items[0]">{{key}}</th>
+        </tr>
+        <tr ng-repeat="item in items">
+            <td ng-repeat="(key, val) in item">{{val}}</td>
+        </tr>
+    </table> -->
