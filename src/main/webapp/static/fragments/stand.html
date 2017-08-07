@@ -1,21 +1,26 @@
-
-<div ng-app="demo">
-  <div ng-controller="standupCtrl" class="row stand-row">
-    <div ng-repeat="list in model" id="dropzone" class="col-lg-4 col-md-4 col-sm-4">
-      <div class="panel panel-info">
-        <div class="panel-heading"><h3 class="panel-title" style="text-align: center;">{{allTitles[$index]}}</h3></div>
-        <div class="panel-body">
-          <ul dnd-list dnd-drop="callback({targetList: list, targetIndex: index})">
-            <li ng-repeat="item in list"
-                dnd-draggable="null" dnd-callback="onDrop(list, $index, targetList, targetIndex)" style="text-align: center;">
-              {{item.labelFunc($index)}}
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+			<div ng-app="demo">
+			  <div ng-controller="standupCtrl" class="row">
+			    <div ng-repeat="list in model" id="dropzone" class="col-lg-2">
+			      <div class="panel panel-info">
+			        <div class="panel-heading"><h3 class="panel-title" style="text-align: center;">{{allTitles[$index]}}</h3></div>
+			        <div class="panel-body">
+			          <ul dnd-list dnd-drop="callback({targetList: list, targetIndex: index})"  id="standup">
+			            <li ng-repeat="item in list"
+			                dnd-draggable="null" dnd-callback="onDrop(list, $index, targetList, targetIndex)" style="text-align: center;">
+			              {{item.labelFunc($index)}} {{item.standLabel}}
+			            </li>
+			          </ul>
+			        </div>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+		</div>
+		<div class="col-md-3">
+		</div>
+	</div>
 </div>
-      
-      
-     

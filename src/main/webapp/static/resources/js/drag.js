@@ -2,11 +2,21 @@
  * 
  */
 
-
 angular
   .module('demo',['dndLists'])
   
   	.controller('DemoController', function($scope) {
+  	
+  		$scope.$watch(returnTemp, function (newValue) {
+  			if(newValue != ""){
+  				if(document.getElementById('scrumboard') != null){
+		  			console.log('Adding to board lane: ' + newValue.story_name);
+					$scope.model[0].splice(0,0,{label: newValue.story_name});
+  				}
+  			}
+		});
+  	
+  	
   	$scope.allTitles = ['To do','In progress','Testing','Verify','Done'];
     $scope.model = [generateList(1), generateList(2), generateList(3), generateList(4), generateList(5)];
     
@@ -20,6 +30,30 @@ angular
       // By returning true from dnd-drop we signalize we already inserted the item.
       return true;
     };
+    
+/*    function getTasks(allTasks){
+    	retTasks = '';
+    	
+    	for(i = 0; i < allTasks.length; i++){
+    		retTasks += allTasks[i].value + '\n';
+    	}
+    	return retTasks;
+    }*/
+    
+    function addStory(jsonValue){
+    	return [jsonValue.story_name].map(function(story) {
+            // angular-drag-and-drop-lists usually serializes the objects to drag, thus we
+            // can not transfer functions on the objects. However, as this fiddle uses dnd-callback
+            // to move the objects directly without serialization, we can use a function reference
+            // on the item here.
+            return {
+              function(index) {
+            	  /*$scope.title = t;*/
+                return "Item " + id + story + " at index " + index;
+              }
+            };
+          });
+        }
     
     function generateList(id) {
       return ['A', 'B', 'C'].map(function(letter) {
@@ -43,6 +77,15 @@ angular
 .controller('standupCtrl', function($scope) {
   	$scope.allTitles = ['What was done','What needs to be done','Blockers'];
     $scope.model = [generateList(1), generateList(2), generateList(3)];
+    
+		$scope.$watch(returnTemp, function (newValue) {
+  			if(newValue != ""){
+  				if(document.getElementById('standup') != null){
+  					console.log('Adding to standup lane: ' + newValue.story_name);
+					$scope.model[0].splice(0,0,{standLabel: newValue.story_name});
+  				}
+  			}
+		});
     
     $scope.onDrop = function(srcList, srcIndex, targetList, targetIndex) {
       // Copy the item from source to target.
