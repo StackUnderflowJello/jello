@@ -34,8 +34,8 @@ public class GetAllJelloBitesByBoardCtrl {
 	public @ResponseBody String getJelloBitesByBoard(HttpServletRequest req) throws JsonParseException, JsonMappingException, IOException{
 		HttpSession httpSession = req.getSession();
 		
-//		Board brd = (Board) httpSession.getAttribute("board");
-		Board brd = new Board(1, "Test Board");
+		Board brd = (Board) httpSession.getAttribute("board");
+
 		List<Swim_Lane> slList = appServices.getAllSwimLaneByBoard(brd);
 		List<List<Jello_Bite>> jbList = new ArrayList<List<Jello_Bite>>();
 		for(Swim_Lane swim : slList){
