@@ -12,7 +12,8 @@ angular
   				if(document.getElementById('scrumboard') != null){
 		  			console.log('Adding to board lane: ' + newValue.story_name);
 					$scope.model[0].splice(0,0,{label: newValue.story_name});
-					getJelloBites();
+					
+					
   				}
   			}
 		});
@@ -55,12 +56,21 @@ angular
             };
           });
         }
-    
+//    [[Jello_Bite [bite_id=5, bite_name=test5, swim_lane=Swim_Lane [lane_id=5, board=Board [b_id=1, b_name=Jello], swim_lane_type=Swim_Lane_Type [col_id=5, col_name=Completed]], jello_point=10]
     function getJelloBites(){
-    	
+    	$scope.jello = {};
     	$http.get('getJelloBites').then(function(response){
-    		console.log('getJelloBites' + response.data);
+    		$scope.jello = response.data;
+    		console.log('getJelloBites' + $scope.jello);
+    		console.log($scope.jello[0]);
+    		console.log($scope.jello[0][0]);
+    		console.log($scope.jello[0][0].swim_lane_type);
+    		
     	});
+    	
+//      var response = '[[Jello_Bite [bite_id=5, bite_name=test5, swim_lane=Swim_Lane [lane_id=5, board=Board [b_id=1, b_name=Jello], swim_lane_type=Swim_Lane_Type [col_id=5, col_name=Completed]], jello_point=10], Jello_Bite [bite_id=6, bite_name=test6, swim_lane=Swim_Lane [lane_id=5, board=Board [b_id=1, b_name=Jello], swim_lane_type=Swim_Lane_Type [col_id=5, col_name=Completed]], jello_point=10]], [Jello_Bite [bite_id=2, bite_name=test2, swim_lane=Swim_Lane [lane_id=2, board=Board [b_id=1, b_name=Jello], swim_lane_type=Swim_Lane_Type [col_id=2, col_name=In-Progress]], jello_point=10], Jello_Bite [bite_id=9, bite_name=test9, swim_lane=Swim_Lane [lane_id=2, board=Board [b_id=1, b_name=Jello], swim_lane_type=Swim_Lane_Type [col_id=2, col_name=In-Progress]], jello_point=10]], [Jello_Bite [bite_id=3, bite_name=test3, swim_lane=Swim_Lane [lane_id=3, board=Board [b_id=1, b_name=Jello], swim_lane_type=Swim_Lane_Type [col_id=3, col_name=Testing]], jello_point=10], Jello_Bite [bite_id=7, bite_name=test7, swim_lane=Swim_Lane [lane_id=3, board=Board [b_id=1, b_name=Jello], swim_lane_type=Swim_Lane_Type [col_id=3, col_name=Testing]], jello_point=10]], [Jello_Bite [bite_id=1, bite_name=test1, swim_lane=Swim_Lane [lane_id=1, board=Board [b_id=1, b_name=Jello], swim_lane_type=Swim_Lane_Type [col_id=1, col_name=To-do]], jello_point=10], Jello_Bite [bite_id=10, bite_name=test10, swim_lane=Swim_Lane [lane_id=1, board=Board [b_id=1, b_name=Jello], swim_lane_type=Swim_Lane_Type [col_id=1, col_name=To-do]], jello_point=10]], [Jello_Bite [bite_id=4, bite_name=test4, swim_lane=Swim_Lane [lane_id=4, board=Board [b_id=1, b_name=Jello], swim_lane_type=Swim_Lane_Type [col_id=4, col_name=Verify]], jello_point=10], Jello_Bite [bite_id=8, bite_name=test8, swim_lane=Swim_Lane [lane_id=4, board=Board [b_id=1, b_name=Jello], swim_lane_type=Swim_Lane_Type [col_id=4, col_name=Verify]], jello_point=10]]]';
+//      jsonResponse = JSON.parse(response);
+//      console.log(jsonResponse);
     };
     
     function generateList(id) {

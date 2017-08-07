@@ -34,13 +34,24 @@ public class GetAllJelloBitesByBoardCtrl {
 	public @ResponseBody String getJelloBitesByBoard(HttpServletRequest req) throws JsonParseException, JsonMappingException, IOException{
 		HttpSession httpSession = req.getSession();
 		
-		Board brd = (Board) httpSession.getAttribute("board");
-
-		List<Swim_Lane> slList = appServices.getAllSwimLaneByBoard(brd);
-		List<List<Jello_Bite>> jbList = new ArrayList<List<Jello_Bite>>();
-		for(Swim_Lane swim : slList){
-			jbList.add(appServices.getAllJello_BitesBySwimLane(swim));
-		}
+//		Board brd = (Board) httpSession.getAttribute("board");
+//
+//		List<Swim_Lane> slList = appServices.getAllSwimLaneByBoard(brd);
+//		List<List<Jello_Bite>> jbList = new ArrayList<List<Jello_Bite>>();
+//		for(Swim_Lane swim : slList){
+//			jbList.add(appServices.getAllJello_BitesBySwimLane(swim));
+//		}
+		
+		Board brd = new Board();
+        brd.setB_id(1);
+        
+        List<Swim_Lane> slList = appServices.getAllSwimLaneByBoard(brd);
+        List<List<Jello_Bite>> jbList = new ArrayList<List<Jello_Bite>>();
+        for(Swim_Lane swim : slList){
+            System.out.println(swim);
+            jbList.add(appServices.getAllJello_BitesBySwimLane(swim));
+        }
+        
 		ObjectMapper mapper = new ObjectMapper();
 		String returnedJson = mapper.writeValueAsString(jbList);
 		return returnedJson;
