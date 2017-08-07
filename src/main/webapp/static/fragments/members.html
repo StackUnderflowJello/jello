@@ -1,13 +1,11 @@
-<div ng-controller="getUserCtrl">
-  <table border="1">
+  <table ng-controller="getUserCtrl" class="table table-bordered table-hover" style="background-color: white;">
     <tr>
-        <th>Email:</th>
+        <th>Members by Email:</th>
     </tr>
-    <tr>
-      <td ng-repeat="email in users">{{users}}</td>
+    <tr ng-repeat="user in users">
+      <td>{{user.u_email}}</td>
     </tr>
   </table>
-</div>
 
 
 <!-- Still in progress -->

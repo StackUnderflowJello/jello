@@ -32,20 +32,10 @@
 	
 	<ul id="navBorder" class="nav nav-pills">
 		<li role="presentation"><a href="#/!" ng-click="show()">View Boards</a>
-			<ul class="dropdown-menu">
-			</ul>
 		<li role="presentation"><a href="#!standup" ng-click="show()">View Stand Up
 				Boards</a></li>
 		<li role="presentation"><a href="#!burndown" ng-click="hide()">View Burn Downs</a></li>
-		<li class="dropdown">
-		<li role="presentation"><a class="dropdown-toggle"
-			data-toggle="dropdown" href="#!members" ng-click="hide()">Members <span class="caret"></span></a>
-			<ul class="dropdown-menu">
-				<li><a href="#">Add Member</a></li>
-				<li ng-controller="remUserCtrl"><a href="#"
-					ng-click="removeUser()" class="ng-show">Remove Member</a></li>
-				<li><a href="#">View Members</a></li>
-			</ul></li>
+		<li role="presentation"><a href="#!members" ng-click="hide()">View Members</a>
 		<li><form class="navbar-form navbar-right">
 			</form></li>
 		<li role="presentation" ng-controller="logoutController"><a
