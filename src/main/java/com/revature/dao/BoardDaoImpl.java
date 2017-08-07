@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import com.revature.pojo.Board;
+import com.revature.pojo.User_Board;
 import com.revature.pojo.User_Board_Id;
 import com.revature.pojo.Users;
 
@@ -33,20 +34,30 @@ public class BoardDaoImpl implements BoardDao{
 		Session session = sessionFactory.getCurrentSession();
 		return (Board) session.get(Board.class, board.getB_id());
 	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Board> getAllBoards(){
+		Session session = sessionFactory.getCurrentSession();
+		Criteria crit = session.createCriteria(Board.class);
+		return crit.list();
+	}
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Board> getAllBoardsByUser(Users use) {
+		System.out.println(use + "I'm a little teapot");
 		Session session = sessionFactory.getCurrentSession();
 		
-		Criteria crit = session.createCriteria(User_Board_Id.class);
-		crit.createAlias("user", "u");
-		crit.add(eq("u.u_id", use.getU_id()));
+		Criteria crit = session.createCriteria(User_Board.class);
+		crit.createAlias("ub_id.user.u_id", "usr");
+		crit.add(eq("usr", use.getU_id()));
+		System.out.println(crit.list() + "hello");
 		Criteria crit2 = session.createCriteria(Board.class);
-		for(User_Board_Id ubi : (List<User_Board_Id>)crit.list()){
-			crit2.add(eq("b_id", ubi.getBoard().getB_id()));
+		for(User_Board ub : (List<User_Board>)crit.list()){
+			crit2.add(eq("b_id", ub.getUB_id().getBoard().getB_id()));
 		}
-		
+		System.out.println(crit2.list() + "goodbye");
 		return (List<Board>) crit2.list();
 	}
 	

@@ -1,11 +1,14 @@
 angular.module('myApp');
 
-app.controller("loginController", function($scope, $http) {
+app.controller("loginController", function($scope, $http, BoardListCtrl) {
 
   window.onload = function() {
     var user = getUser();
     if(user != null) {
       $scope.hideModal();
+      $scope.chooseBoard = true;
+    }else{
+      $scope.chooseBoard = false;
     }
   }
   
@@ -41,6 +44,7 @@ app.controller("loginController", function($scope, $http) {
         			$('.modal-button').css('display', 'none');
         			$scope.hideModal();
         			setUser($scope.username);
+        			$scope.chooseBoard = true;
         		},
         		function(){
         			console.log("Invalid Credentials!")

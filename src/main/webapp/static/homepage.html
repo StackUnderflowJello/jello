@@ -19,6 +19,7 @@
   	<link rel="stylesheet" href="static/resources/css/modalstyle.css" />
   	<link rel="stylesheet" href="static/resources/css/drag.css" /> 
   	<link rel="stylesheet" href="static/resources/css/simpleDND.css" />
+  	<link rel="stylesheet" href="static/resources/css/board.css" />
   	<!-- favicon --> 	
 	<link rel="icon" type="image/png" sizes="16x16" href="static/resources/img/favicon-16x16.png">
 
@@ -170,6 +171,22 @@
 					ng-click="showRegister()">Not Registered?</button>
 				<button class="btn btn-primary" id="register" ng-click="register()">Register</button>
 			</div>
+			<div id="boardModal" class="board-modal" ng-controller="boardsCtrl" ng-show="chooseBoard">
+	 			<div class="modal-content">
+	 				<div class="modal-header">
+	 					<h1>Choose a Board</h1>
+	 				</div>
+	 				<div class="modal-body">
+	 					<div class="form-group">
+	 						<label for="boardList">Boards</label>
+	 						<select ng-model="boardChoice">
+	 							<option ng-repeat="brd in boards" value="{{brd.b_id}}">{{brd.b_name}}</option>
+	 						</select>
+	 						<button class="btn btn-danger" ng-click="chooseBoard()">Choose Board</button>
+	 					</div>
+	 				</div>
+	 			</div>
+	 		</div>
 		</div>
 	</div>
 
@@ -181,6 +198,7 @@
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
 	<script src="static/resources/js/app.js"></script>
+	<script src="static/resources/js/boardCtrl.js"></script>
 	<script src="static/resources/js/remUser.js"></script>
 	<script src="static/resources/js/addStory.js"></script>
 	<script src="static/resources/js/canvasjs.min.js"
@@ -194,9 +212,8 @@
 	<script src="static/resources/js/chartapp.js"></script>
 	<script src="static/resources/js/drag.js"></script>
 	<script src="static/resources/js/addUser.js"></script>
-	<script src="static/resources/js/addUserService.js"></script>
-	
 	<script src="static/resources/js/remUserService.js"></script>
+	<script src="static/resources/js/addUserService.js"></script>
 
 </body>
 </html>

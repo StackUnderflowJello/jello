@@ -93,7 +93,6 @@ public class AppServices {
      * ======================= Board Services ===============================
      */
     public List<Board> getAllBoardsByUser(Users use){
-        
         return boarddao.getAllBoardsByUser(use);
     }
     
@@ -104,6 +103,12 @@ public class AppServices {
     public Board getBoard(Board board){
         return boarddao.getBoard(board);
     }
+
+
+	public List<Board> getAllBoards() {
+		return boarddao.getAllBoards();
+	}
+	
     
     public void adminRenameBoard(Board board){
         if(user_boarddao.getUser_BoardByBoard(board).getRole().getR_id() == 2){
@@ -289,7 +294,6 @@ public class AppServices {
     	public void removeHistory(History history){
     		historydao.removeHistory(history);
     	}
-    	
     	
     /*
      * ====================== End History Services ============================

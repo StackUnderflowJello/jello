@@ -28,7 +28,8 @@ public class GetAllBoardsByUser {
 		HttpSession httpSession = req.getSession();
 		Users user = (Users) httpSession.getAttribute("user");
 		
-		List<Board> boardList = appServices.getAllBoardsByUser(user);
+		//List<Board> boardList = appServices.getAllBoardsByUser(user);
+		List<Board> boardList = appServices.getAllBoards();
 		ObjectMapper mapper = new ObjectMapper();
 		String returnedJson = mapper.writeValueAsString(boardList);
 		return returnedJson;
